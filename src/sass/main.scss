@@ -1,0 +1,24 @@
+@import "_reset.scss";
+
+
+body{
+  background-color: #a8cce6;
+  font-family: PingFangSC-Regular;
+  font-size: 14px;
+}
+.userWrapper{
+  display: flex;
+  margin: 0 auto;
+  padding: 20px 0;
+  width: 980px;
+  background-color: #94bddb;
+}
+.rightMain{
+  padding: 22px 20px;
+  box-sizing: border-box;
+  width: 820px;
+  height: auto;
+  background-color: #fff;
+  box-shadow:0 1px 2px 0 #629ec8;
+  border-radius:2px;
+}
