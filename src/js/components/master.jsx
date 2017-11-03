@@ -1,6 +1,7 @@
 import React from 'react';
 // import {Link} from 'react-router';
 import PropTypes from 'prop-types';
+import LeftNav from '../component/leftNav/leftNav.jsx';
 
 import '../../sass/main.scss';
 class Master extends React.Component {
@@ -13,7 +14,8 @@ class Master extends React.Component {
           children,
         } = this.props;
         return (
-          <div>
+          <div className = "userWrapper">
+              <LeftNav/>
               { children }
           </div>
         );

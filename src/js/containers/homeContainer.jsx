@@ -2,28 +2,27 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
+import Home from '../components/home.jsx';
+
 import {
   getHelloWorldState
 } from '../reducers/index';
 
 class HomeContainer extends Component {
-    static propTypes = {
-      test: PropTypes.object,
-    };
+  static propTypes = {
+    test: PropTypes.object,
+  };
 
-    componentDidMount() {
-    }
+  componentDidMount() {
+  }
 
-    render() {
-      const {
-        test
-      } = this.props;
-      return (
-          <div>
-            { test.value }
-          </div>
-        );
-    }
+  render() {
+    return (
+        <div className = "rightMain">
+          <Home/>
+        </div>
+      );
+  }
 }
 
 const mapStateToProps = (state) => {
