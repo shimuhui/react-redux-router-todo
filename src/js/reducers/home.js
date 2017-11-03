@@ -5,7 +5,7 @@ import {
 } from '../constants/actionsTypes';
 
 function test(state = {
-  value: 'hello world !!!!!',
+  value: 'hello world xiaotongxiugai !!!!!',
 }, action) {
   switch (action.type) {
     case HELLO_WORLD:
