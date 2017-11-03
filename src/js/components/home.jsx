@@ -18,7 +18,7 @@ class home extends React.Component {
     this.style = {
       homeRight: {
         position: 'absolute',
-        right: '0px',
+        right: '10px',
         top: '0px',
         height: '100%',
         paddingBottom: '20px',
