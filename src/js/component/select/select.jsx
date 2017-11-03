@@ -23,7 +23,8 @@ class select extends React.Component {
         width: width,
         height: height,
         backgroundColor: '#fafafa',
-        border: '1px solid #e0e0e0',
+        border: '1px solid',
+        borderColor: '#e0e0e0',
         borderRadius: '0',
         backgroundImage: 'url(' + Config.imgUrl + 'selectIcon.png)',
         backgroundSize: '9px 14px',
@@ -38,7 +39,11 @@ class select extends React.Component {
 
     return (
       <div>
-        <select name="" id = {this.props.id} style = {this.style.select}>
+        <select
+          name=""
+          id = {this.props.id}
+          style = {this.style.select}
+        >
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>

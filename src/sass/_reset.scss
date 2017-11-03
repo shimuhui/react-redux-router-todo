@@ -7,4 +7,6 @@ li,ol{
 }
 select,input{
   -webkit-appearance: none;
+  border: none;
 }
+input:focus,select:focus{ outline:none; }
