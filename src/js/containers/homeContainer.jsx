@@ -1,33 +1,29 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
-import Home from '../components/home.jsx';
-
-import {
-  getHelloWorldState
-} from '../reducers/index';
 
 class HomeContainer extends Component {
   static propTypes = {
-    test: PropTypes.object,
   };
 
-  componentDidMount() {
+  componentWillMount() {
   }
 
   render() {
+
     return (
-        <div className = "rightMain">
-          <Home/>
-        </div>
-      );
+      <div></div>
+    );
   }
 }
 
+HomeContainer.propTypes = {
+};
+
 const mapStateToProps = (state) => {
   return {
-    test: getHelloWorldState(state),
+    state: state,
   };
 };
 

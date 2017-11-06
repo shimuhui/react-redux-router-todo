@@ -1,21 +1,25 @@
 import {combineReducers} from 'redux';
 import assign from 'lodash.assign';
 import {
-  HELLO_WORLD
+  GET_ROLE_LIST
 } from '../constants/actionsTypes';
 
-function test(state = {
-  value: 'hello world !',
-}, action) {
+const getRoleList = (state = {
+  list: []
+}, action) => {
   switch (action.type) {
-    case HELLO_WORLD:
+    case GET_ROLE_LIST:
       return assign({}, state, action.info);
     default:
       return state;
   }
-}
+};
+
+export const getRoleListState = (state) => {
+  return state.home.getRoleList.list;
+};
 
 
 export default combineReducers({
-  test,
+  getRoleList,
 });
