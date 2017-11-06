@@ -1,0 +1,52 @@
+.filter{
+  width: 820px;
+  height: 90px;
+  border-radius: 2px;
+  background: #fff;
+  box-shadow: 0 1px 2px 0 #629ec8;
+  padding: 8px 20px 0 20px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  .filterTitle{
+    width: auto;
+    height: 20px;
+    margin-bottom: 16px;
+    font-size: 14px;
+    color: #727272;
+    text-align: left;
+    line-height: 20px;
+  }
+  .filterContent{
+    width: 780px;
+    height: 30px;
+    overflow: hidden;
+    .leftFilterInfo{
+      width: auto;
+      float: left;
+      height: 30px;
+      display: flex;
+      justify-content: flex-start;
+      .selectBox{
+        width: auto;
+        height: 30px;
+        line-height: 30px;
+        margin-right: 25px;
+        display: flex;
+        justify-content: flex-start;
+      }
+      .selectName{
+        height: 30px;
+        font-size: 14px;
+        color: #323232;
+        margin-right: 10px;
+      }
+    }
+    .rightBtn{
+      width: 146px;
+      float: right;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+  }
+}
