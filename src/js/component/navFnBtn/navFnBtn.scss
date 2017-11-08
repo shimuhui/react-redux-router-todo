@@ -1,0 +1,20 @@
+.navFnBtn{
+  width: 60px;
+  height: 17px;
+  font-size: 12px;
+  color: #2ec75d;
+  font-family: "PingFangSC-Regular";
+  line-height: 17px;
+  text-align: center;
+  .icon{
+    float: left;
+    width: 8px;
+    height: 7px;
+    box-sizing: border-box;
+  }
+  .name{
+    float: right;
+    width: 48px;
+    height: 17px;
+  }
+}

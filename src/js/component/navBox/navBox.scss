@@ -1,0 +1,25 @@
+.navBox{
+  width: 820px;
+  height: 36px;
+  overflow: hidden;
+  box-shadow: 0 1px 2px 0 #629ec8;
+  border-radius: 2px;
+  background: #fff;
+  margin-bottom: 10px;
+  .breadCrumbBox{
+    width: auto;
+    height: 36px;
+    float: left;
+  }
+  .addBtn{
+    width: 60px;
+    height: 36px;
+    float: right;
+    margin-right: 20px;
+    padding-top: 9px;
+    box-sizing: border-box;
+  }
+  &:hover{
+    cursor: pointer;
+  }
+}

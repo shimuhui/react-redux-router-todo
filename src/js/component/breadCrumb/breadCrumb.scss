@@ -1,0 +1,12 @@
+.breadCrumb{
+  width: auto;
+  height: 36px;
+  padding: 0 20px;
+  line-height: 36px;
+  color: #727272;
+  font-family: "PingFangSC-Regular";
+  font-size: 14px;
+  &:hover{
+    cursor: pointer;
+  }
+}
