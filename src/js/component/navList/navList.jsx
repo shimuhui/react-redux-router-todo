@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './_navList.scss';
 
 
-class leftNav extends React.Component {
+class NavList extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -33,9 +33,9 @@ class leftNav extends React.Component {
     }
 }
 
-leftNav.propTypes = {
+NavList.propTypes = {
   name: PropTypes.string.isRequired,
   isNavSelected: PropTypes.bool.isRequired
 };
 
-export default leftNav;
+export default NavList;

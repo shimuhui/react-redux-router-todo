@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Config from '../../configs/config.js';
 
-class checkbox extends React.Component {
+class Checkbox extends React.Component {
   constructor(props) {
     super(props);
     this._checkClick = this._checkClick.bind(this);
@@ -14,8 +14,8 @@ class checkbox extends React.Component {
       checkboxStyle: {
         display: 'flex',
         alignItems: 'center',
-        height: '12px',
-        lineHeight: '12px',
+        height: '14px',
+        lineHeight: '14px',
         fontSize: '12px',
         color: '#323232',
         cursor: 'pointer',
@@ -71,14 +71,14 @@ class checkbox extends React.Component {
   }
 }
 
-checkbox.propTypes = {
+Checkbox.propTypes = {
   name: PropTypes.string.isRequired,
   isChecked: PropTypes.bool.isRequired,
   checkboxClick: PropTypes.func.isRequired,
 };
 
-checkbox.defaultProps = {
+Checkbox.defaultProps = {
 
 };
 
-export default checkbox;
+export default Checkbox;

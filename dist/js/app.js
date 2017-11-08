@@ -402,6 +402,40 @@ module.exports = __webpack_require__(28);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+if (process.env.NODE_ENV !== 'production') {
+  var REACT_ELEMENT_TYPE = typeof Symbol === 'function' && Symbol.for && Symbol.for('react.element') || 0xeac7;
+
+  var isValidElement = function isValidElement(object) {
+    return (typeof object === 'undefined' ? 'undefined' : _typeof(object)) === 'object' && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
+  };
+
+  // By explicitly using `prop-types` you are opting into new development behavior.
+  // http://fb.me/prop-types-in-prod
+  var throwOnDirectAccess = true;
+  module.exports = __webpack_require__(102)(isValidElement, throwOnDirectAccess);
+} else {
+  // By explicitly using `prop-types` you are opting into new production behavior.
+  // http://fb.me/prop-types-in-prod
+  module.exports = __webpack_require__(196)();
+}
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -438,40 +472,6 @@ function reactProdInvariant(code) {
 }
 
 module.exports = reactProdInvariant;
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-if (process.env.NODE_ENV !== 'production') {
-  var REACT_ELEMENT_TYPE = typeof Symbol === 'function' && Symbol.for && Symbol.for('react.element') || 0xeac7;
-
-  var isValidElement = function isValidElement(object) {
-    return (typeof object === 'undefined' ? 'undefined' : _typeof(object)) === 'object' && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
-  };
-
-  // By explicitly using `prop-types` you are opting into new development behavior.
-  // http://fb.me/prop-types-in-prod
-  var throwOnDirectAccess = true;
-  module.exports = __webpack_require__(102)(isValidElement, throwOnDirectAccess);
-} else {
-  // By explicitly using `prop-types` you are opting into new production behavior.
-  // http://fb.me/prop-types-in-prod
-  module.exports = __webpack_require__(196)();
-}
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 6 */
@@ -584,7 +584,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 
 
-var _prodInvariant = __webpack_require__(4);
+var _prodInvariant = __webpack_require__(5);
 
 var DOMProperty = __webpack_require__(18);
 var ReactDOMComponentFlags = __webpack_require__(106);
@@ -1331,7 +1331,7 @@ module.exports = { debugTool: debugTool };
 
 
 
-var _prodInvariant = __webpack_require__(4),
+var _prodInvariant = __webpack_require__(5),
     _assign = __webpack_require__(6);
 
 var CallbackQueue = __webpack_require__(104);
@@ -2026,7 +2026,7 @@ var createPath = exports.createPath = function createPath(location) {
 
 
 
-var _prodInvariant = __webpack_require__(4);
+var _prodInvariant = __webpack_require__(5);
 
 var invariant = __webpack_require__(1);
 
@@ -2408,7 +2408,7 @@ module.exports = warning;
 
 
 
-var _prodInvariant = __webpack_require__(4);
+var _prodInvariant = __webpack_require__(5);
 
 var invariant = __webpack_require__(1);
 
@@ -3821,7 +3821,7 @@ module.exports = {
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var _prodInvariant = __webpack_require__(4);
+var _prodInvariant = __webpack_require__(5);
 
 var EventPluginRegistry = __webpack_require__(41);
 var EventPluginUtils = __webpack_require__(61);
@@ -4346,7 +4346,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.routes = exports.route = exports.components = exports.component = exports.history = undefined;
 exports.falsy = falsy;
 
-var _propTypes = __webpack_require__(5);
+var _propTypes = __webpack_require__(4);
 
 function falsy(props, propName, componentName) {
   if (props[propName]) return new Error('<' + componentName + '> should not have a "' + propName + '" prop');
@@ -4383,7 +4383,7 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(5);
+var _propTypes = __webpack_require__(4);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -4596,7 +4596,7 @@ var isExtraneousPopstateEvent = exports.isExtraneousPopstateEvent = function isE
 
 
 
-var _prodInvariant = __webpack_require__(4);
+var _prodInvariant = __webpack_require__(5);
 
 var invariant = __webpack_require__(1);
 
@@ -5255,7 +5255,7 @@ module.exports = SyntheticMouseEvent;
 
 
 
-var _prodInvariant = __webpack_require__(4);
+var _prodInvariant = __webpack_require__(5);
 
 var invariant = __webpack_require__(1);
 
@@ -5775,7 +5775,7 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(5);
+var _propTypes = __webpack_require__(4);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -6970,7 +6970,7 @@ module.exports = DOMNamespaces;
 
 
 
-var _prodInvariant = __webpack_require__(4);
+var _prodInvariant = __webpack_require__(5);
 
 var ReactErrorUtils = __webpack_require__(65);
 
@@ -7262,7 +7262,7 @@ module.exports = KeyEscapeUtils;
 
 
 
-var _prodInvariant = __webpack_require__(4);
+var _prodInvariant = __webpack_require__(5);
 
 var ReactPropTypesSecret = __webpack_require__(114);
 var propTypesFactory = __webpack_require__(101);
@@ -7405,7 +7405,7 @@ module.exports = LinkedValueUtils;
 
 
 
-var _prodInvariant = __webpack_require__(4);
+var _prodInvariant = __webpack_require__(5);
 
 var invariant = __webpack_require__(1);
 
@@ -7536,7 +7536,7 @@ module.exports = ReactErrorUtils;
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var _prodInvariant = __webpack_require__(4);
+var _prodInvariant = __webpack_require__(5);
 
 var ReactCurrentOwner = __webpack_require__(14);
 var ReactInstanceMap = __webpack_require__(34);
@@ -8558,7 +8558,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.ContextProvider = ContextProvider;
 exports.ContextSubscriber = ContextSubscriber;
 
-var _propTypes = __webpack_require__(5);
+var _propTypes = __webpack_require__(4);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -8690,7 +8690,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.locationShape = exports.routerShape = undefined;
 
-var _propTypes = __webpack_require__(5);
+var _propTypes = __webpack_require__(4);
 
 var routerShape = exports.routerShape = (0, _propTypes.shape)({
   push: _propTypes.func.isRequired,
@@ -8735,7 +8735,7 @@ var _createReactClass = __webpack_require__(15);
 
 var _createReactClass2 = _interopRequireDefault(_createReactClass);
 
-var _propTypes = __webpack_require__(5);
+var _propTypes = __webpack_require__(4);
 
 var _getRouteParams = __webpack_require__(289);
 
@@ -10750,7 +10750,7 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(5);
+var _propTypes = __webpack_require__(4);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -10782,18 +10782,10 @@ var Alert = function (_React$Component) {
   _createClass(Alert, [{
     key: 'componentWillMount',
     value: function componentWillMount() {
-      // const {
-      //   // width,
-      //   // height,
-      //   // borderColor,
-      //   // backgroundColor,
-      //   // color,
-      //   // fontSize,
-      // } = this.props;
 
       this.style = {
         alertMain: {
-          position: 'absolute',
+          position: 'fixed',
           top: '315px',
           left: '50%',
           marginLeft: '-150px',
@@ -10940,7 +10932,7 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(5);
+var _propTypes = __webpack_require__(4);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -10960,16 +10952,16 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var labelInput = function (_React$Component) {
-  _inherits(labelInput, _React$Component);
+var LabelInput = function (_React$Component) {
+  _inherits(LabelInput, _React$Component);
 
-  function labelInput(props) {
-    _classCallCheck(this, labelInput);
+  function LabelInput(props) {
+    _classCallCheck(this, LabelInput);
 
-    return _possibleConstructorReturn(this, (labelInput.__proto__ || Object.getPrototypeOf(labelInput)).call(this, props));
+    return _possibleConstructorReturn(this, (LabelInput.__proto__ || Object.getPrototypeOf(LabelInput)).call(this, props));
   }
 
-  _createClass(labelInput, [{
+  _createClass(LabelInput, [{
     key: 'componentWillMount',
     value: function componentWillMount() {
 
@@ -11028,10 +11020,10 @@ var labelInput = function (_React$Component) {
     }
   }]);
 
-  return labelInput;
+  return LabelInput;
 }(_react2.default.Component);
 
-labelInput.propTypes = {
+LabelInput.propTypes = {
   labelName: _propTypes2.default.string.isRequired,
   marginTop: _propTypes2.default.string.isRequired,
   isSelect: _propTypes2.default.bool,
@@ -11044,7 +11036,7 @@ labelInput.propTypes = {
   id: _propTypes2.default.string.isRequired
 };
 
-labelInput.defaultProps = {
+LabelInput.defaultProps = {
   value: '',
   isSelect: false,
   width: '362px',
@@ -11055,7 +11047,7 @@ labelInput.defaultProps = {
   getInputValue: function getInputValue() {}
 };
 
-exports.default = labelInput;
+exports.default = LabelInput;
 
 /***/ }),
 /* 88 */
@@ -11074,7 +11066,7 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(5);
+var _propTypes = __webpack_require__(4);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -11090,13 +11082,13 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var ovalLabel = function (_React$Component) {
-  _inherits(ovalLabel, _React$Component);
+var OvalLabel = function (_React$Component) {
+  _inherits(OvalLabel, _React$Component);
 
-  function ovalLabel(props) {
-    _classCallCheck(this, ovalLabel);
+  function OvalLabel(props) {
+    _classCallCheck(this, OvalLabel);
 
-    var _this = _possibleConstructorReturn(this, (ovalLabel.__proto__ || Object.getPrototypeOf(ovalLabel)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (OvalLabel.__proto__ || Object.getPrototypeOf(OvalLabel)).call(this, props));
 
     _this._checkClick = _this._checkClick.bind(_this);
     _this._closeButtonClick = _this._closeButtonClick.bind(_this);
@@ -11106,7 +11098,7 @@ var ovalLabel = function (_React$Component) {
     return _this;
   }
 
-  _createClass(ovalLabel, [{
+  _createClass(OvalLabel, [{
     key: 'componentWillMount',
     value: function componentWillMount() {
       var _props = this.props,
@@ -11192,10 +11184,10 @@ var ovalLabel = function (_React$Component) {
     }
   }]);
 
-  return ovalLabel;
+  return OvalLabel;
 }(_react2.default.Component);
 
-ovalLabel.propTypes = {
+OvalLabel.propTypes = {
   labelName: _propTypes2.default.string.isRequired,
   height: _propTypes2.default.string,
   marginTop: _propTypes2.default.string,
@@ -11206,7 +11198,7 @@ ovalLabel.propTypes = {
   closeButtonClick: _propTypes2.default.func
 };
 
-ovalLabel.defaultProps = {
+OvalLabel.defaultProps = {
   height: '28px',
   marginTop: '12px',
   marginRight: '11px',
@@ -11214,7 +11206,7 @@ ovalLabel.defaultProps = {
   closeButtonClick: function closeButtonClick() {}
 };
 
-exports.default = ovalLabel;
+exports.default = OvalLabel;
 
 /***/ }),
 /* 89 */
@@ -11233,7 +11225,7 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(5);
+var _propTypes = __webpack_require__(4);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -11385,7 +11377,7 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(5);
+var _propTypes = __webpack_require__(4);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -11397,16 +11389,16 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var addUserBlock = function (_React$Component) {
-  _inherits(addUserBlock, _React$Component);
+var AddUserBlock = function (_React$Component) {
+  _inherits(AddUserBlock, _React$Component);
 
-  function addUserBlock(props) {
-    _classCallCheck(this, addUserBlock);
+  function AddUserBlock(props) {
+    _classCallCheck(this, AddUserBlock);
 
-    return _possibleConstructorReturn(this, (addUserBlock.__proto__ || Object.getPrototypeOf(addUserBlock)).call(this, props));
+    return _possibleConstructorReturn(this, (AddUserBlock.__proto__ || Object.getPrototypeOf(AddUserBlock)).call(this, props));
   }
 
-  _createClass(addUserBlock, [{
+  _createClass(AddUserBlock, [{
     key: 'componentWillMount',
     value: function componentWillMount() {
 
@@ -11451,20 +11443,20 @@ var addUserBlock = function (_React$Component) {
     }
   }]);
 
-  return addUserBlock;
+  return AddUserBlock;
 }(_react2.default.Component);
 
-addUserBlock.propTypes = {
+AddUserBlock.propTypes = {
   title: _propTypes2.default.string.isRequired,
   width: _propTypes2.default.string,
   children: _propTypes2.default.node
 };
 
-addUserBlock.defaultProps = {
+AddUserBlock.defaultProps = {
   width: '488px'
 };
 
-exports.default = addUserBlock;
+exports.default = AddUserBlock;
 
 /***/ }),
 /* 91 */
@@ -11483,7 +11475,7 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(5);
+var _propTypes = __webpack_require__(4);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -11514,17 +11506,26 @@ var PermissionList = function (_React$Component) {
 
       this.style = {
         checkboxGroupStyle: {
-          marginTop: '10px'
+          marginTop: '10px',
+          // maxHeight: '95%',
+          overflow: 'scroll'
         },
         checkboxListStyle: {
           marginBottom: '14px'
         },
         noList: {
           fontSize: '12px',
-          lineHeight: '12px',
+          lineHeight: '14px',
           color: '#323232'
         }
       };
+    }
+  }, {
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps() {
+      var oId = document.getElementById('test');
+      var h = oId.offsetHeight;
+      document.getElementById('permissionHeight').style.maxHeight = h - 80 + 'px';
     }
   }, {
     key: '_permissionCheckedClick',
@@ -11543,7 +11544,9 @@ var PermissionList = function (_React$Component) {
 
       return _react2.default.createElement(
         'div',
-        { style: this.style.checkboxGroupStyle },
+        {
+          id: 'permissionHeight',
+          style: this.style.checkboxGroupStyle },
         permissionList.length != 0 ? permissionList.map(function (item, id) {
           return _react2.default.createElement(
             'div',
@@ -11593,7 +11596,7 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(5);
+var _propTypes = __webpack_require__(4);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -11737,7 +11740,7 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(5);
+var _propTypes = __webpack_require__(4);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -13081,7 +13084,7 @@ module.exports = CSSProperty;
 
 
 
-var _prodInvariant = __webpack_require__(4);
+var _prodInvariant = __webpack_require__(5);
 
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
@@ -13725,7 +13728,7 @@ module.exports = ReactFeatureFlags;
 
 
 
-var _prodInvariant = __webpack_require__(4);
+var _prodInvariant = __webpack_require__(5);
 
 var invariant = __webpack_require__(1);
 
@@ -13923,7 +13926,7 @@ module.exports = ReactInputSelection;
 
 
 
-var _prodInvariant = __webpack_require__(4);
+var _prodInvariant = __webpack_require__(5);
 
 var DOMLazyTree = __webpack_require__(24);
 var DOMProperty = __webpack_require__(18);
@@ -14466,7 +14469,7 @@ module.exports = ReactMount;
 
 
 
-var _prodInvariant = __webpack_require__(4);
+var _prodInvariant = __webpack_require__(5);
 
 var React = __webpack_require__(28);
 
@@ -14558,7 +14561,7 @@ module.exports = ViewportMetrics;
 
 
 
-var _prodInvariant = __webpack_require__(4);
+var _prodInvariant = __webpack_require__(5);
 
 var invariant = __webpack_require__(1);
 
@@ -14849,7 +14852,7 @@ module.exports = inputValueTracking;
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var _prodInvariant = __webpack_require__(4),
+var _prodInvariant = __webpack_require__(5),
     _assign = __webpack_require__(6);
 
 var ReactCompositeComponent = __webpack_require__(210);
@@ -15093,7 +15096,7 @@ module.exports = setTextContent;
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var _prodInvariant = __webpack_require__(4);
+var _prodInvariant = __webpack_require__(5);
 
 var ReactCurrentOwner = __webpack_require__(14);
 var REACT_ELEMENT_TYPE = __webpack_require__(229);
@@ -15698,7 +15701,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.storeShape = exports.subscriptionShape = undefined;
 
-var _propTypes = __webpack_require__(5);
+var _propTypes = __webpack_require__(4);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -15859,7 +15862,7 @@ var _createReactClass = __webpack_require__(15);
 
 var _createReactClass2 = _interopRequireDefault(_createReactClass);
 
-var _propTypes = __webpack_require__(5);
+var _propTypes = __webpack_require__(4);
 
 var _invariant = __webpack_require__(9);
 
@@ -16036,7 +16039,7 @@ var _createReactClass = __webpack_require__(15);
 
 var _createReactClass2 = _interopRequireDefault(_createReactClass);
 
-var _propTypes = __webpack_require__(5);
+var _propTypes = __webpack_require__(4);
 
 var _invariant = __webpack_require__(9);
 
@@ -18310,7 +18313,7 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(5);
+var _propTypes = __webpack_require__(4);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -18326,19 +18329,19 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var checkbox = function (_React$Component) {
-  _inherits(checkbox, _React$Component);
+var Checkbox = function (_React$Component) {
+  _inherits(Checkbox, _React$Component);
 
-  function checkbox(props) {
-    _classCallCheck(this, checkbox);
+  function Checkbox(props) {
+    _classCallCheck(this, Checkbox);
 
-    var _this = _possibleConstructorReturn(this, (checkbox.__proto__ || Object.getPrototypeOf(checkbox)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (Checkbox.__proto__ || Object.getPrototypeOf(Checkbox)).call(this, props));
 
     _this._checkClick = _this._checkClick.bind(_this);
     return _this;
   }
 
-  _createClass(checkbox, [{
+  _createClass(Checkbox, [{
     key: 'componentWillMount',
     value: function componentWillMount() {
 
@@ -18346,8 +18349,8 @@ var checkbox = function (_React$Component) {
         checkboxStyle: {
           display: 'flex',
           alignItems: 'center',
-          height: '12px',
-          lineHeight: '12px',
+          height: '14px',
+          lineHeight: '14px',
           fontSize: '12px',
           color: '#323232',
           cursor: 'pointer'
@@ -18399,18 +18402,18 @@ var checkbox = function (_React$Component) {
     }
   }]);
 
-  return checkbox;
+  return Checkbox;
 }(_react2.default.Component);
 
-checkbox.propTypes = {
+Checkbox.propTypes = {
   name: _propTypes2.default.string.isRequired,
   isChecked: _propTypes2.default.bool.isRequired,
   checkboxClick: _propTypes2.default.func.isRequired
 };
 
-checkbox.defaultProps = {};
+Checkbox.defaultProps = {};
 
-exports.default = checkbox;
+exports.default = Checkbox;
 
 /***/ }),
 /* 156 */
@@ -18429,7 +18432,7 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(5);
+var _propTypes = __webpack_require__(4);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -18547,6 +18550,10 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = __webpack_require__(4);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _navList = __webpack_require__(158);
 
 var _navList2 = _interopRequireDefault(_navList);
@@ -18558,19 +18565,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-// import PropTypes from 'prop-types';
 
+var LeftNav = function (_React$Component) {
+  _inherits(LeftNav, _React$Component);
 
-var leftNav = function (_React$Component) {
-  _inherits(leftNav, _React$Component);
+  function LeftNav(props) {
+    _classCallCheck(this, LeftNav);
 
-  function leftNav(props) {
-    _classCallCheck(this, leftNav);
-
-    return _possibleConstructorReturn(this, (leftNav.__proto__ || Object.getPrototypeOf(leftNav)).call(this, props));
+    return _possibleConstructorReturn(this, (LeftNav.__proto__ || Object.getPrototypeOf(LeftNav)).call(this, props));
   }
 
-  _createClass(leftNav, [{
+  _createClass(LeftNav, [{
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
@@ -18579,17 +18584,21 @@ var leftNav = function (_React$Component) {
         _react2.default.createElement(
           'ul',
           null,
-          _react2.default.createElement(_navList2.default, { name: '\u7528\u6237', isNavSelected: true }),
-          _react2.default.createElement(_navList2.default, { name: '\u76F8\u6846', isNavSelected: false })
+          _react2.default.createElement(_navList2.default, { name: '\u7528\u6237',
+            isNavSelected: this.props.isNavSelected == 'user' ? true : false }),
+          _react2.default.createElement(_navList2.default, { name: '\u76F8\u6846',
+            isNavSelected: this.props.isNavSelected == 'photo' ? true : false })
         )
       );
     }
   }]);
 
-  return leftNav;
+  return LeftNav;
 }(_react2.default.Component);
 
-leftNav.propTypes = {};
+LeftNav.propTypes = {
+  isNavSelected: _propTypes2.default.string
+};
 
 var styles = {
   leftNav: {
@@ -18606,7 +18615,7 @@ var styles = {
     borderRadius: '50%'
   }
 };
-exports.default = leftNav;
+exports.default = LeftNav;
 
 /***/ }),
 /* 158 */
@@ -18625,7 +18634,7 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(5);
+var _propTypes = __webpack_require__(4);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -18639,16 +18648,16 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var leftNav = function (_React$Component) {
-  _inherits(leftNav, _React$Component);
+var NavList = function (_React$Component) {
+  _inherits(NavList, _React$Component);
 
-  function leftNav(props) {
-    _classCallCheck(this, leftNav);
+  function NavList(props) {
+    _classCallCheck(this, NavList);
 
-    return _possibleConstructorReturn(this, (leftNav.__proto__ || Object.getPrototypeOf(leftNav)).call(this, props));
+    return _possibleConstructorReturn(this, (NavList.__proto__ || Object.getPrototypeOf(NavList)).call(this, props));
   }
 
-  _createClass(leftNav, [{
+  _createClass(NavList, [{
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
@@ -18673,15 +18682,15 @@ var leftNav = function (_React$Component) {
     }
   }]);
 
-  return leftNav;
+  return NavList;
 }(_react2.default.Component);
 
-leftNav.propTypes = {
+NavList.propTypes = {
   name: _propTypes2.default.string.isRequired,
   isNavSelected: _propTypes2.default.bool.isRequired
 };
 
-exports.default = leftNav;
+exports.default = NavList;
 
 /***/ }),
 /* 159 */
@@ -18700,7 +18709,7 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(5);
+var _propTypes = __webpack_require__(4);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -18716,19 +18725,19 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var select = function (_React$Component) {
-  _inherits(select, _React$Component);
+var Select = function (_React$Component) {
+  _inherits(Select, _React$Component);
 
-  function select(props) {
-    _classCallCheck(this, select);
+  function Select(props) {
+    _classCallCheck(this, Select);
 
-    var _this = _possibleConstructorReturn(this, (select.__proto__ || Object.getPrototypeOf(select)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (Select.__proto__ || Object.getPrototypeOf(Select)).call(this, props));
 
     _this._change = _this._change.bind(_this);
     return _this;
   }
 
-  _createClass(select, [{
+  _createClass(Select, [{
     key: 'componentWillMount',
     value: function componentWillMount() {
       var _props = this.props,
@@ -18806,10 +18815,10 @@ var select = function (_React$Component) {
     }
   }]);
 
-  return select;
+  return Select;
 }(_react2.default.Component);
 
-select.propTypes = {
+Select.propTypes = {
   id: _propTypes2.default.string.isRequired,
   width: _propTypes2.default.string,
   height: _propTypes2.default.string,
@@ -18818,14 +18827,14 @@ select.propTypes = {
   value: _propTypes2.default.string
 };
 
-select.defaultProps = {
+Select.defaultProps = {
   width: '362px',
   height: '28px',
   selectList: [],
   value: ''
 };
 
-exports.default = select;
+exports.default = Select;
 
 /***/ }),
 /* 160 */
@@ -18835,7 +18844,7 @@ exports.default = select;
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -18844,7 +18853,7 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(5);
+var _propTypes = __webpack_require__(4);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -18865,33 +18874,34 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 var Master = function (_React$Component) {
-    _inherits(Master, _React$Component);
+  _inherits(Master, _React$Component);
 
-    function Master(props) {
-        _classCallCheck(this, Master);
+  function Master(props) {
+    _classCallCheck(this, Master);
 
-        return _possibleConstructorReturn(this, (Master.__proto__ || Object.getPrototypeOf(Master)).call(this, props));
+    return _possibleConstructorReturn(this, (Master.__proto__ || Object.getPrototypeOf(Master)).call(this, props));
+  }
+
+  _createClass(Master, [{
+    key: 'render',
+    value: function render() {
+      var children = this.props.children;
+
+      return _react2.default.createElement(
+        'div',
+        { className: 'userWrapper' },
+        _react2.default.createElement(_leftNav2.default, { isNavSelected: 'user' }),
+        children
+      );
     }
+  }]);
 
-    _createClass(Master, [{
-        key: 'render',
-        value: function render() {
-            var children = this.props.children;
-
-            return _react2.default.createElement(
-                'div',
-                { className: 'userWrapper' },
-                _react2.default.createElement(_leftNav2.default, null),
-                children
-            );
-        }
-    }]);
-
-    return Master;
+  return Master;
 }(_react2.default.Component);
 
 Master.propTypes = {
-    children: _propTypes2.default.node.isRequired
+  children: _propTypes2.default.node.isRequired,
+  params: _propTypes2.default.object
 };
 exports.default = Master;
 
@@ -18912,7 +18922,7 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(5);
+var _propTypes = __webpack_require__(4);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -18986,8 +18996,8 @@ var AddUserContainer = function (_Component) {
           position: 'absolute',
           right: '0px',
           top: '0px',
-          height: '100%',
-          paddingBottom: '20px',
+          bottom: '20px',
+          overflow: 'hidden',
           boxSizing: 'border-box'
         },
         homeMain: {
@@ -19052,7 +19062,7 @@ var AddUserContainer = function (_Component) {
           alertObj = _props.alertObj,
           alertClick = _props.alertClick;
 
-      console.log('-->', alertObj);
+
       return _react2.default.createElement(
         'div',
         { className: 'rightMain' },
@@ -19061,7 +19071,9 @@ var AddUserContainer = function (_Component) {
           null,
           _react2.default.createElement(
             'div',
-            { style: this.style.homeMain },
+            {
+              id: 'test',
+              style: this.style.homeMain },
             _react2.default.createElement(
               'div',
               null,
@@ -19297,7 +19309,7 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(5);
+var _propTypes = __webpack_require__(4);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -19435,7 +19447,7 @@ var EditUserContainer = function (_Component) {
           alertObj = _props.alertObj,
           alertClick = _props.alertClick;
 
-      console.log('-->', userInputValue);
+
       return _react2.default.createElement(
         'div',
         { className: 'rightMain' },
@@ -19444,7 +19456,9 @@ var EditUserContainer = function (_Component) {
           null,
           _react2.default.createElement(
             'div',
-            { style: this.style.homeMain },
+            {
+              id: 'test',
+              style: this.style.homeMain },
             _react2.default.createElement(
               'div',
               null,
@@ -32721,7 +32735,7 @@ module.exports = ChangeEventPlugin;
 
 
 
-var _prodInvariant = __webpack_require__(4);
+var _prodInvariant = __webpack_require__(5);
 
 var DOMLazyTree = __webpack_require__(24);
 var ExecutionEnvironment = __webpack_require__(8);
@@ -33429,7 +33443,7 @@ module.exports = ReactComponentBrowserEnvironment;
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var _prodInvariant = __webpack_require__(4),
+var _prodInvariant = __webpack_require__(5),
     _assign = __webpack_require__(6);
 
 var React = __webpack_require__(28);
@@ -34452,7 +34466,7 @@ module.exports = ReactDOM;
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var _prodInvariant = __webpack_require__(4),
+var _prodInvariant = __webpack_require__(5),
     _assign = __webpack_require__(6);
 
 var AutoFocusUtils = __webpack_require__(199);
@@ -35626,7 +35640,7 @@ module.exports = ReactDOMIDOperations;
 
 
 
-var _prodInvariant = __webpack_require__(4),
+var _prodInvariant = __webpack_require__(5),
     _assign = __webpack_require__(6);
 
 var DOMPropertyOperations = __webpack_require__(105);
@@ -36402,7 +36416,7 @@ module.exports = ReactDOMSelection;
 
 
 
-var _prodInvariant = __webpack_require__(4),
+var _prodInvariant = __webpack_require__(5),
     _assign = __webpack_require__(6);
 
 var DOMChildrenOperations = __webpack_require__(59);
@@ -36568,7 +36582,7 @@ module.exports = ReactDOMTextComponent;
 
 
 
-var _prodInvariant = __webpack_require__(4),
+var _prodInvariant = __webpack_require__(5),
     _assign = __webpack_require__(6);
 
 var LinkedValueUtils = __webpack_require__(63);
@@ -36732,7 +36746,7 @@ module.exports = ReactDOMTextarea;
 
 
 
-var _prodInvariant = __webpack_require__(4);
+var _prodInvariant = __webpack_require__(5);
 
 var invariant = __webpack_require__(1);
 
@@ -37899,7 +37913,7 @@ module.exports = ReactMarkupChecksum;
 
 
 
-var _prodInvariant = __webpack_require__(4);
+var _prodInvariant = __webpack_require__(5);
 
 var ReactComponentEnvironment = __webpack_require__(64);
 var ReactInstanceMap = __webpack_require__(34);
@@ -38350,7 +38364,7 @@ module.exports = ReactMultiChild;
 
 
 
-var _prodInvariant = __webpack_require__(4);
+var _prodInvariant = __webpack_require__(5);
 
 var invariant = __webpack_require__(1);
 
@@ -39501,7 +39515,7 @@ module.exports = SelectEventPlugin;
 
 
 
-var _prodInvariant = __webpack_require__(4);
+var _prodInvariant = __webpack_require__(5);
 
 var EventListener = __webpack_require__(94);
 var EventPropagators = __webpack_require__(33);
@@ -40250,7 +40264,7 @@ module.exports = adler32;
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var _prodInvariant = __webpack_require__(4);
+var _prodInvariant = __webpack_require__(5);
 
 var ReactPropTypeLocationNames = __webpack_require__(238);
 var ReactPropTypesSecret = __webpack_require__(114);
@@ -40424,7 +40438,7 @@ module.exports = dangerousStyleValue;
 
 
 
-var _prodInvariant = __webpack_require__(4);
+var _prodInvariant = __webpack_require__(5);
 
 var ReactCurrentOwner = __webpack_require__(14);
 var ReactDOMComponentTree = __webpack_require__(7);
@@ -40960,7 +40974,7 @@ exports.createProvider = createProvider;
 
 var _react = __webpack_require__(3);
 
-var _propTypes = __webpack_require__(5);
+var _propTypes = __webpack_require__(4);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -41933,7 +41947,7 @@ var _createReactClass = __webpack_require__(15);
 
 var _createReactClass2 = _interopRequireDefault(_createReactClass);
 
-var _propTypes = __webpack_require__(5);
+var _propTypes = __webpack_require__(4);
 
 var _routerWarning = __webpack_require__(27);
 
@@ -42001,7 +42015,7 @@ var _createReactClass = __webpack_require__(15);
 
 var _createReactClass2 = _interopRequireDefault(_createReactClass);
 
-var _propTypes = __webpack_require__(5);
+var _propTypes = __webpack_require__(4);
 
 var _routerWarning = __webpack_require__(27);
 
@@ -42068,7 +42082,7 @@ var _createReactClass = __webpack_require__(15);
 
 var _createReactClass2 = _interopRequireDefault(_createReactClass);
 
-var _propTypes = __webpack_require__(5);
+var _propTypes = __webpack_require__(4);
 
 var _invariant = __webpack_require__(9);
 
@@ -42138,7 +42152,7 @@ var _createReactClass = __webpack_require__(15);
 
 var _createReactClass2 = _interopRequireDefault(_createReactClass);
 
-var _propTypes = __webpack_require__(5);
+var _propTypes = __webpack_require__(4);
 
 var _createTransitionManager2 = __webpack_require__(137);
 
@@ -44931,7 +44945,7 @@ exports = module.exports = __webpack_require__(84)(undefined);
 
 
 // module
-exports.push([module.i, "* {\n  padding: 0;\n  margin: 0; }\n\nli, ol {\n  list-style-type: none; }\n\nselect, input {\n  -webkit-appearance: none;\n  border: none; }\n\ninput:focus, select:focus {\n  outline: none; }\n\nhtml {\n  position: relative;\n  width: 100%;\n  height: auto;\n  min-height: 100%; }\n\nbody {\n  width: 100%;\n  height: 100%;\n  background-color: #a8cce6;\n  font-family: PingFangSC-Regular;\n  font-size: 14px; }\n\n#app {\n  width: 100%;\n  height: 100%; }\n\n.userWrapper {\n  display: -ms-flexbox;\n  display: flex;\n  margin: 0 auto;\n  padding: 20px 0;\n  width: 980px;\n  background-color: #94bddb; }\n\n.rightMain {\n  padding: 22px 20px;\n  box-sizing: border-box;\n  width: 820px;\n  height: auto;\n  background-color: #fff;\n  box-shadow: 0 1px 2px 0 #629ec8;\n  border-radius: 2px; }\n", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\n* {\n  padding: 0;\n  margin: 0; }\n\nli, ol {\n  list-style-type: none; }\n\nselect, input {\n  -webkit-appearance: none;\n  border: none; }\n\ninput:focus, select:focus {\n  outline: none; }\n\nhtml {\n  position: relative;\n  width: 100%;\n  height: auto;\n  min-height: 100%; }\n\nbody {\n  width: 100%;\n  height: 100%;\n  background-color: #a8cce6;\n  font-family: PingFangSC-Regular;\n  font-size: 14px; }\n\n#app {\n  width: 100%;\n  height: 100%; }\n\n.userWrapper {\n  display: -ms-flexbox;\n  display: flex;\n  margin: 0 auto;\n  padding: 20px 0;\n  width: 980px;\n  background-color: #94bddb; }\n\n.rightMain {\n  padding: 22px 20px;\n  box-sizing: border-box;\n  width: 820px;\n  height: auto;\n  background-color: #fff;\n  box-shadow: 0 1px 2px 0 #629ec8;\n  border-radius: 2px; }\n\n/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/\n::-webkit-scrollbar {\n  width: 3px;\n  height: 0px; }\n\n/*定义滚动条轨道 内阴影+圆角*/\n/*定义滑块 内阴影+圆角*/\n::-webkit-scrollbar-thumb {\n  border-radius: 100px;\n  background-color: #d8d8d8; }\n", ""]);
 
 // exports
 

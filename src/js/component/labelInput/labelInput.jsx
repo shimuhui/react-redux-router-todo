@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Input from '../input/input.jsx';
 import Select from '../select/select.jsx';
 
-class labelInput extends React.Component {
+class LabelInput extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -66,7 +66,7 @@ class labelInput extends React.Component {
   }
 }
 
-labelInput.propTypes = {
+LabelInput.propTypes = {
   labelName: PropTypes.string.isRequired,
   marginTop: PropTypes.string.isRequired,
   isSelect: PropTypes.bool,
@@ -79,7 +79,7 @@ labelInput.propTypes = {
   id: PropTypes.string.isRequired,
 };
 
-labelInput.defaultProps = {
+LabelInput.defaultProps = {
   value: '',
   isSelect: false,
   width: '362px',
@@ -90,4 +90,4 @@ labelInput.defaultProps = {
   getInputValue: () => {}
 };
 
-export default labelInput;
+export default LabelInput;

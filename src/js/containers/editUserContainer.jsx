@@ -120,11 +120,13 @@ class EditUserContainer extends Component {
       alertObj,
       alertClick,
     } = this.props;
-    console.log('-->', userInputValue);
+
     return (
       <div className = "rightMain">
         <div>
-          <div style = {this.style.homeMain}>
+          <div
+            id = 'test'
+            style = {this.style.homeMain}>
             <div>
               <AddUserBlock
                 title = '信息'>
