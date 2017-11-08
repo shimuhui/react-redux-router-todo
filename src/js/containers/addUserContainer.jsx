@@ -59,8 +59,8 @@ class AddUserContainer extends Component {
         position: 'absolute',
         right: '0px',
         top: '0px',
-        height: '100%',
-        paddingBottom: '20px',
+        bottom: '20px',
+        overflow: 'hidden',
         boxSizing: 'border-box',
       },
       homeMain: {
@@ -124,11 +124,13 @@ class AddUserContainer extends Component {
       alertObj,
       alertClick,
     } = this.props;
-    console.log('-->', alertObj);
+
     return (
       <div className = "rightMain">
         <div>
-          <div style = {this.style.homeMain}>
+          <div
+            id = 'test'
+            style = {this.style.homeMain}>
             <div>
               <AddUserBlock
                 title = '信息'>

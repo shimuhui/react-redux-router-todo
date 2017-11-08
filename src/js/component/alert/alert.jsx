@@ -9,18 +9,10 @@ class Alert extends React.Component {
   }
 
   componentWillMount() {
-    // const {
-    //   // width,
-    //   // height,
-    //   // borderColor,
-    //   // backgroundColor,
-    //   // color,
-    //   // fontSize,
-    // } = this.props;
 
     this.style = {
       alertMain: {
-        position: 'absolute',
+        position: 'fixed',
         top: '315px',
         left: '50%',
         marginLeft: '-150px',

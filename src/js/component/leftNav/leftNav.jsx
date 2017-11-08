@@ -1,8 +1,8 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import NavList from '../navList/navList.jsx';
 
-class leftNav extends React.Component {
+class LeftNav extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -11,15 +11,20 @@ class leftNav extends React.Component {
         return (
             <div style = {styles.leftNav}>
               <ul>
-                <NavList name = '用户' isNavSelected = {true} />
-                <NavList name = '相框' isNavSelected = {false} />
+                <NavList name = '用户'
+                         isNavSelected = {
+                           this.props.isNavSelected == 'user' ? true:false} />
+                <NavList name = '相框'
+                         isNavSelected = {
+                           this.props.isNavSelected == 'photo' ? true:false} />
               </ul>
             </div>
         );
     }
 }
 
-leftNav.propTypes = {
+LeftNav.propTypes = {
+  isNavSelected: PropTypes.string,
 };
 
 const styles = {
@@ -37,4 +42,4 @@ const styles = {
     borderRadius: '50%',
   }
 };
-export default leftNav;
+export default LeftNav;

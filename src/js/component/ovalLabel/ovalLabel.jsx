@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Config from '../../configs/config.js';
 
-class ovalLabel extends React.Component {
+class OvalLabel extends React.Component {
   constructor(props) {
     super(props);
     this._checkClick = this._checkClick.bind(this);
@@ -101,7 +101,7 @@ class ovalLabel extends React.Component {
   }
 }
 
-ovalLabel.propTypes = {
+OvalLabel.propTypes = {
   labelName: PropTypes.string.isRequired,
   height: PropTypes.string,
   marginTop: PropTypes.string,
@@ -112,7 +112,7 @@ ovalLabel.propTypes = {
   closeButtonClick: PropTypes.func,
 };
 
-ovalLabel.defaultProps = {
+OvalLabel.defaultProps = {
   height: '28px',
   marginTop: '12px',
   marginRight: '11px',
@@ -120,4 +120,4 @@ ovalLabel.defaultProps = {
   closeButtonClick: () => {}
 };
 
-export default ovalLabel;
+export default OvalLabel;

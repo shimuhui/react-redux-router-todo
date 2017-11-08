@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Config from '../../configs/config.js';
 
-class select extends React.Component {
+class Select extends React.Component {
   constructor(props) {
     super(props);
     this._change = this._change.bind(this);
@@ -71,7 +71,7 @@ class select extends React.Component {
   }
 }
 
-select.propTypes = {
+Select.propTypes = {
   id: PropTypes.string.isRequired,
   width: PropTypes.string,
   height: PropTypes.string,
@@ -80,11 +80,11 @@ select.propTypes = {
   value: PropTypes.string,
 };
 
-select.defaultProps = {
+Select.defaultProps = {
   width: '362px',
   height: '28px',
   selectList: [],
   value: ''
 };
 
-export default select;
+export default Select;
