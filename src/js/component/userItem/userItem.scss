@@ -1,0 +1,31 @@
+.userItem{
+  height: 52px;
+  width: 790px;
+  font-family: "PingFangSC-Regular";
+  box-sizing: border-box;
+  border-bottom: 1px solid #e5e5e5;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  .userInfo{
+    width: 640px;
+    height: 51px;
+    color: #323232;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-around;
+    box-sizing: border-box;
+  }
+  .infoText{
+    box-sizing: border-box;
+    width: 77px;
+    overflow: hidden;
+    height: 51px;
+    line-height: 51px;
+    text-align: center;
+  }
+  .userItemBtn{
+    width: 150px;
+
+  }
+}
