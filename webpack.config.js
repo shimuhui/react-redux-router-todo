@@ -8,12 +8,12 @@ module.exports = {
     },
     module: {
       rules: [
-        {
-          test: /\.(js|jsx)$/,
-          enforce: 'pre',
-          exclude: /(node_modules|bower_components)/,
-          use: "eslint-loader"
-        },
+        // {
+        //   test: /\.(js|jsx)$/,
+        //   enforce: 'pre',
+        //   exclude: /(node_modules|bower_components)/,
+        //   use: "eslint-loader"
+        // },
         {
           test: /\.(js|jsx)$/,
           use: "babel-loader"
