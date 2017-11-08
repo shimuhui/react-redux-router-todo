@@ -2,10 +2,13 @@ import {combineReducers} from 'redux';
 
 import {routerReducer as routing} from 'react-router-redux';
 
-import home from './home';//
+import addUser from './addUser';
+import editUser from './editUser';
+
 export default combineReducers({
   routing,
-  home,
+  addUser,
+  editUser,
 });
 
 export function getHelloWorldState(state) {

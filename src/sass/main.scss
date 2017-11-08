@@ -1,10 +1,21 @@
 @import "_reset.scss";
 
-
+html{
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+}
 body{
+  width: 100%;
+  height: 100%;
   background-color: #a8cce6;
   font-family: PingFangSC-Regular;
   font-size: 14px;
+}
+#app {
+  width: 100%;
+  height: 100%;
 }
 .userWrapper{
   display: flex;

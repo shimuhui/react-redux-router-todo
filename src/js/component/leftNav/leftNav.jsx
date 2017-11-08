@@ -28,6 +28,7 @@ const styles = {
     width: '150px',
     minHeight: '100%',
     backgroundColor: '#94bddb',
+    cursor: 'pointer',
   },
   icon: {
     display: 'inline-block',
