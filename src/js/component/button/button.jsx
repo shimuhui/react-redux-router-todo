@@ -21,6 +21,7 @@ class Button extends React.Component {
         width: width,
         height: height,
         lineHeight: height,
+        boxSizing: 'border-box',
         textAlign: 'center',
         fontSize: fontSize,
         color: color,
@@ -58,7 +59,7 @@ Button.propTypes = {
 
 Button.defaultProps = {
   width: '98px',
-  height: '34px',
+  height: '36px',
   fontSize: '14px',
   buttonClick: () => {},
 };

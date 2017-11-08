@@ -4421,6 +4421,7 @@ var Button = function (_React$Component) {
           width: width,
           height: height,
           lineHeight: height,
+          boxSizing: 'border-box',
           textAlign: 'center',
           fontSize: fontSize,
           color: color,
@@ -4466,7 +4467,7 @@ Button.propTypes = {
 
 Button.defaultProps = {
   width: '98px',
-  height: '34px',
+  height: '36px',
   fontSize: '14px',
   buttonClick: function buttonClick() {}
 };
@@ -10047,7 +10048,7 @@ var getUserAction = function getUserAction(info) {
 
 //编辑-获取用户信息
 var getUser = exports.getUser = function getUser(id) {
-  console.log(id);
+
   return function (dispatch) {
     _jquery2.default.ajax({
       url: '/v2/admin/api/users/' + id,
@@ -10864,12 +10865,12 @@ var Alert = function (_React$Component) {
         'div',
         { style: this.style.alert },
         _react2.default.createElement('div', {
+          onClick: closeClick,
           style: this.style.alertBg }),
         _react2.default.createElement(
           'div',
           {
-            style: this.style.alertMain,
-            onClick: this.props.closeClick },
+            style: this.style.alertMain },
           _react2.default.createElement(
             'h4',
             { style: this.style.title },
@@ -10890,7 +10891,7 @@ var Alert = function (_React$Component) {
             _react2.default.createElement(_button2.default, {
               name: '\u77E5\u9053\u4E86',
               width: '76px',
-              height: '28px',
+              height: '30px',
               borderColor: '#00b03d',
               backgroundColor: '#2ec75d',
               color: '#ffffff',
@@ -18505,7 +18506,7 @@ var InputButton = function (_React$Component) {
         _react2.default.createElement(_input2.default, {
           id: this.props.id,
           width: '366px',
-          height: '29px',
+          height: '30px',
           value: this.state.inputValue,
           getInputValue: this._inputChange,
           isEmptyValue: this.state.isEmptyValue
@@ -18513,7 +18514,7 @@ var InputButton = function (_React$Component) {
         _react2.default.createElement(_button2.default, {
           name: '\u786E\u5B9A',
           width: '66px',
-          height: '28px',
+          height: '30px',
           borderColor: isChange ? '#00b03d' : '#dddddd',
           backgroundColor: isChange ? '#2ec75d' : 'r#eeeeeeed',
           color: isChange ? '#ffffff' : '#999999',
@@ -44945,7 +44946,7 @@ exports = module.exports = __webpack_require__(84)(undefined);
 
 
 // module
-exports.push([module.i, "@charset \"UTF-8\";\n* {\n  padding: 0;\n  margin: 0; }\n\nli, ol {\n  list-style-type: none; }\n\nselect, input {\n  -webkit-appearance: none;\n  border: none; }\n\ninput:focus, select:focus {\n  outline: none; }\n\nhtml {\n  position: relative;\n  width: 100%;\n  height: auto;\n  min-height: 100%; }\n\nbody {\n  width: 100%;\n  height: 100%;\n  background-color: #a8cce6;\n  font-family: PingFangSC-Regular;\n  font-size: 14px; }\n\n#app {\n  width: 100%;\n  height: 100%; }\n\n.userWrapper {\n  display: -ms-flexbox;\n  display: flex;\n  margin: 0 auto;\n  padding: 20px 0;\n  width: 980px;\n  background-color: #94bddb; }\n\n.rightMain {\n  padding: 22px 20px;\n  box-sizing: border-box;\n  width: 820px;\n  height: auto;\n  background-color: #fff;\n  box-shadow: 0 1px 2px 0 #629ec8;\n  border-radius: 2px; }\n\n/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/\n::-webkit-scrollbar {\n  width: 3px;\n  height: 0px; }\n\n/*定义滚动条轨道 内阴影+圆角*/\n/*定义滑块 内阴影+圆角*/\n::-webkit-scrollbar-thumb {\n  border-radius: 100px;\n  background-color: #d8d8d8; }\n", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\n* {\n  padding: 0;\n  margin: 0; }\n\nli, ol {\n  list-style-type: none; }\n\nselect, input {\n  appearance: none;\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  border: none; }\n\nselect:focus {\n  outline: 0 none !important; }\n\ninput:focus, select:focus {\n  outline: none; }\n\nhtml {\n  position: relative;\n  width: 100%;\n  height: auto;\n  min-height: 100%; }\n\nbody {\n  width: 100%;\n  height: 100%;\n  background-color: #a8cce6;\n  font-family: PingFangSC-Regular;\n  font-size: 14px; }\n\n#app {\n  width: 100%;\n  height: 100%; }\n\n.userWrapper {\n  display: -ms-flexbox;\n  display: flex;\n  margin: 0 auto;\n  padding: 20px 0;\n  width: 980px;\n  background-color: #94bddb; }\n\n.rightMain {\n  padding: 22px 20px;\n  box-sizing: border-box;\n  width: 820px;\n  height: auto;\n  background-color: #fff;\n  box-shadow: 0 1px 2px 0 #629ec8;\n  border-radius: 2px; }\n\n/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/\n::-webkit-scrollbar {\n  width: 3px;\n  height: 0px; }\n\n/*定义滚动条轨道 内阴影+圆角*/\n/*定义滑块 内阴影+圆角*/\n::-webkit-scrollbar-thumb {\n  border-radius: 100px;\n  background-color: #d8d8d8; }\n", ""]);
 
 // exports
 
