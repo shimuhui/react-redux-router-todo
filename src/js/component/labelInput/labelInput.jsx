@@ -13,11 +13,11 @@ class labelInput extends React.Component {
     this.style = {
       labelInputStyle: {
         display: 'flex',
-        justifyContent: 'space-between',
         height: 'auto',
         marginTop: this.props.marginTop,
       },
       labelStyle: {
+        width: '84px',
         lineHeight: '30px',
         color: '#323232',
       }
@@ -25,21 +25,40 @@ class labelInput extends React.Component {
   }
 
   render() {
+    const {
+      id,
+      disabled,
+      labelName,
+      width,
+      defaultValue,
+      selectList,
+      isSelect,
+      getInputValue,
+      value,
+    } = this.props;
 
     return (
       <div style = {this.style.labelInputStyle}>
         <label
-          htmlFor="username"
+          htmlFor = {id}
           style = {this.style.labelStyle}>
-          {this.props.labelName}
+          {labelName}
         </label>
         {
-          this.props.isSelect
+          isSelect
             ? <Select
-                id = 'companyname'
+                id = {id}
+                value = {value}
+                selectList = {selectList}
+                getSelectValue = {getInputValue}
               />
             : <Input
-                id = 'username'
+                id = {id}
+                value = {value}
+                disabled = {disabled}
+                width = {width}
+                defaultValue = {defaultValue}
+                getInputValue = {getInputValue}
               />
         }
       </div>
@@ -51,10 +70,24 @@ labelInput.propTypes = {
   labelName: PropTypes.string.isRequired,
   marginTop: PropTypes.string.isRequired,
   isSelect: PropTypes.bool,
+  width: PropTypes.string,
+  disabled: PropTypes.bool,
+  selectList: PropTypes.array,
+  defaultValue: PropTypes.string,
+  value: PropTypes.string,
+  getInputValue: PropTypes.func,
+  id: PropTypes.string.isRequired,
 };
 
 labelInput.defaultProps = {
+  value: '',
   isSelect: false,
+  width: '362px',
+  marginTop: '14px',
+  disabled: false,
+  selectList: [],
+  defaultValue: '',
+  getInputValue: () => {}
 };
 
 export default labelInput;

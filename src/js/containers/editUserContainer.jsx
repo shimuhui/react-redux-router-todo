@@ -12,9 +12,6 @@ import Button from '../component/button/button.jsx';
 import Alert from '../component/alert/alert.jsx';
 
 import {
-  getRoleList,
-  getPartnersList,
-  getUid,
   roleChange,
   pushMessageChange,
   pushMessCountAdd,
@@ -25,6 +22,7 @@ import {
   getUserMessageInput,
   getInteractInput,
   alertClick,
+  getUser,
 } from '../actions/addUser';
 
 import {
@@ -42,15 +40,13 @@ import {
   getAlertState,
 } from '../reducers/addUser';
 
-class AddUserContainer extends Component {
+class EditUserContainer extends Component {
   static propTypes = {
     test: PropTypes.object,
   };
 
   componentDidMount() {
-    this.props.getRoleList();
-    this.props.getPartnersList();
-    this.props.getUid();
+    this.props.getUser(this.props.params.id);
   }
 
   componentWillMount() {
@@ -124,7 +120,7 @@ class AddUserContainer extends Component {
       alertObj,
       alertClick,
     } = this.props;
-    console.log('-->', alertObj);
+    console.log('-->', userInputValue);
     return (
       <div className = "rightMain">
         <div>
@@ -270,13 +266,10 @@ class AddUserContainer extends Component {
   }
 }
 
-AddUserContainer.propTypes = {
-  getRoleList: PropTypes.func.isRequired,
-  getPartnersList: PropTypes.func.isRequired,
+EditUserContainer.propTypes = {
   roleList: PropTypes.array.isRequired,
   permissionList: PropTypes.array.isRequired,
   partnersList: PropTypes.array.isRequired,
-  getUid: PropTypes.func.isRequired,
   uid: PropTypes.string.isRequired,
   roleChange: PropTypes.func.isRequired,
   isCheckedRoleId: PropTypes.number.isRequired,
@@ -296,6 +289,8 @@ AddUserContainer.propTypes = {
   getInteractInput: PropTypes.func.isRequired,
   alertObj: PropTypes.object.isRequired,
   alertClick: PropTypes.func.isRequired,
+  params: PropTypes.object,
+  getUser: PropTypes.func,
 };
 
 const mapStateToProps = (state) => {
@@ -318,9 +313,6 @@ const mapStateToProps = (state) => {
 export default connect(
   mapStateToProps,
   {
-    getRoleList,
-    getPartnersList,
-    getUid,
     roleChange,
     pushMessageChange,
     pushMessCountAdd,
@@ -331,5 +323,6 @@ export default connect(
     getUserMessageInput,
     getInteractInput,
     alertClick,
+    getUser,
   }
-)(AddUserContainer);
+)(EditUserContainer);
