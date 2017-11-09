@@ -10,7 +10,7 @@ import Radio from '../component/radio/radio.jsx';
 import PermissionList from '../components/permissionList.jsx';
 import Button from '../component/button/button.jsx';
 import Alert from '../component/alert/alert.jsx';
-import BreadCrumb from '../component/breadCrumb/breadCrumb.jsx';
+import NavBox from '../component/navBox/navBox.jsx';
 
 import {
   getRoleList,
@@ -23,6 +23,7 @@ import {
   permissionChecked,
   interactCheckedChange,
   submitClick,
+  cancelClick,
   getUserMessageInput,
   getInteractInput,
   alertClick,
@@ -119,6 +120,7 @@ class AddUserContainer extends Component {
       interactCheckedObj,
       interactCheckedChange,
       submitClick,
+      cancelClick,
       getUserMessageInput,
       userInputValue,
       getInteractInput,
@@ -128,10 +130,14 @@ class AddUserContainer extends Component {
 
     return (
       <div>
-        <BreadCrumb
-          address = '/add'
-          bg = '#eeeeee'
-          name = '新建用户'/>
+        <NavBox
+          navTitles = {['用户', '新建用户']}
+          url = {
+            ['/admin/user/edit/index',
+              '/admin/user/edit/add']}
+          borderColor = {[]}
+          btnShow = {false}
+          btnName = {''}/>
         <div className = "rightMain">
           <div>
             <div
@@ -256,7 +262,8 @@ class AddUserContainer extends Component {
                 fontSize = '16px'
                 borderColor = '#d6d6d6'
                 backgroundColor = '#e6e6e6'
-                color = '#323232'/>
+                color = '#323232'
+                buttonClick = {cancelClick}/>
               <Button
                 name = '确定'
                 fontSize = '16px'
@@ -300,6 +307,7 @@ AddUserContainer.propTypes = {
   interactCheckedObj: PropTypes.object.isRequired,
   interactCheckedChange: PropTypes.func.isRequired,
   submitClick: PropTypes.func.isRequired,
+  cancelClick: PropTypes.func.isRequired,
   getUserMessageInput: PropTypes.func.isRequired,
   userInputValue: PropTypes.object.isRequired,
   getInteractInput: PropTypes.func.isRequired,
@@ -340,5 +348,6 @@ export default connect(
     getUserMessageInput,
     getInteractInput,
     alertClick,
+    cancelClick,
   }
 )(AddUserContainer);

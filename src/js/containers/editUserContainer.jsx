@@ -10,6 +10,7 @@ import Radio from '../component/radio/radio.jsx';
 import PermissionList from '../components/permissionList.jsx';
 import Button from '../component/button/button.jsx';
 import Alert from '../component/alert/alert.jsx';
+import NavBox from '../component/navBox/navBox.jsx';
 
 import {
   roleChange,
@@ -19,6 +20,7 @@ import {
   permissionChecked,
   interactCheckedChange,
   submitClick,
+  cancelClick,
   getUserMessageInput,
   getInteractInput,
   alertClick,
@@ -114,6 +116,7 @@ class EditUserContainer extends Component {
       interactCheckedObj,
       interactCheckedChange,
       submitClick,
+      cancelClick,
       getUserMessageInput,
       userInputValue,
       getInteractInput,
@@ -122,147 +125,158 @@ class EditUserContainer extends Component {
     } = this.props;
 
     return (
-      <div className = "rightMain">
-        <div>
-          <div
-            id = 'test'
-            style = {this.style.homeMain}>
-            <div>
-              <AddUserBlock
-                title = '信息'>
-                <div style={this.style.blockLabelInput}>
-                  <LabelInput
-                    id = 'userName'
-                    labelName = '用户姓名'
-                    value = {userInputValue.userName}
-                    getInputValue = {getUserMessageInput}/>
-                  <LabelInput
-                    id = 'userPhone'
-                    value = {userInputValue.userPhone}
-                    labelName = '手机号码'
-                    getInputValue = {getUserMessageInput}/>
-                  <LabelInput
-                    id = 'company'
-                    labelName = '公司名称'
-                    isSelect = {true}
-                    value = {userInputValue.company}
-                    selectList = {partnersList}
-                    getInputValue = {getUserMessageInput}/>
-                  <LabelInput
-                    id = 'uid'
-                    labelName = 'UID'
-                    width = '84px'
-                    disabled = {true}
-                    defaultValue = {uid}/>
-                </div>
-              </AddUserBlock>
-              <AddUserBlock
-                title = '角色'>
-                <div style={this.style.blockRoleList}>
-                  <RoleList
-                    ovalData = {roleList}
-                    isCheckedId = {isCheckedRoleId}
-                    changeClick = {roleChange}/>
-                </div>
-              </AddUserBlock>
-
-              {
-                isPushMessageCountShow
-                  ? <AddUserBlock
-                      title = '每天可推送消息数'>
-                      <div>
-                        <PushMessageCount
-                          id = 'pushMessage'
-                          showListArr = {pushMessCountObj.list}
-                          isShowInputButton = {
-                            pushMessCountObj.isShowInputButton}
-                          checkedId = {pushMessCountObj.checkedId}
-                          pushMessageChange = {pushMessageChange}
-                          pushMessCountAdd = {pushMessCountAdd}
-                          pushMessCountDelete = {pushMessCountDelete}/>
-                      </div>
-                    </AddUserBlock>
-                  : null
-              }
-
-              {
-                interactShow
-                  ? <AddUserBlock
-                  title = '相框互动'>
-                  <div style={this.style.blockRadio}>
-                    <Radio
-                      text = '没有'
-                      isChecked = {interactCheckedObj.firstRadioChecked}
-                      radioChange = {interactCheckedChange}/>
-                    <Radio
-                      text = '有'
-                      isChecked = {!interactCheckedObj.firstRadioChecked}
-                      radioChange = {interactCheckedChange}/>
+      <div>
+        <NavBox
+          navTitles = {['用户', '编辑用户']}
+          url = {
+            ['/admin/user/edit/add',
+              '/admin/user/edit/edit/' + this.props.params.id]}
+          borderColor = {[]}
+          btnShow = {false}
+          btnName = {''}/>
+        <div className = "rightMain">
+          <div>
+            <div
+              id = 'test'
+              style = {this.style.homeMain}>
+              <div>
+                <AddUserBlock
+                  title = '信息'>
+                  <div style={this.style.blockLabelInput}>
+                    <LabelInput
+                      id = 'userName'
+                      labelName = '用户姓名'
+                      value = {userInputValue.userName}
+                      getInputValue = {getUserMessageInput}/>
+                    <LabelInput
+                      id = 'userPhone'
+                      value = {userInputValue.userPhone}
+                      labelName = '手机号码'
+                      getInputValue = {getUserMessageInput}/>
+                    <LabelInput
+                      id = 'company'
+                      labelName = '公司名称'
+                      isSelect = {true}
+                      value = {userInputValue.company}
+                      selectList = {partnersList}
+                      getInputValue = {getUserMessageInput}/>
+                    <LabelInput
+                      id = 'uid'
+                      labelName = 'UID'
+                      width = '84px'
+                      disabled = {true}
+                      defaultValue = {uid}/>
                   </div>
-                  {
-                    interactCheckedObj.firstRadioChecked
-                      ? null
-                      : <div>
-                          <h4
-                            style = {this.style.radioHaveMessageTitle}>
-                            互动角色信息
-                          </h4>
-                          <LabelInput
-                            id = 'interactPhone'
-                            labelName = '手机号码'
-                            value = {interactCheckedObj.interactPhone}
-                            getInputValue = {getInteractInput}/>
-                          <LabelInput
-                            id = 'interactName'
-                            value = {interactCheckedObj.interactName}
-                            labelName = '姓名'
-                            getInputValue = {getInteractInput}/>
-                          <LabelInput
-                            id = 'interactUid'
-                            labelName = 'UID'
-                            width = '84px'
-                            disabled = {true}
-                            defaultValue = {interactCheckedObj.uid}/>
-                        </div>
-                  }
                 </AddUserBlock>
-                  : null
-              }
+                <AddUserBlock
+                  title = '角色'>
+                  <div style={this.style.blockRoleList}>
+                    <RoleList
+                      ovalData = {roleList}
+                      isCheckedId = {isCheckedRoleId}
+                      changeClick = {roleChange}/>
+                  </div>
+                </AddUserBlock>
+
+                {
+                  isPushMessageCountShow
+                    ? <AddUserBlock
+                        title = '每天可推送消息数'>
+                        <div>
+                          <PushMessageCount
+                            id = 'pushMessage'
+                            showListArr = {pushMessCountObj.list}
+                            isShowInputButton = {
+                              pushMessCountObj.isShowInputButton}
+                            checkedId = {pushMessCountObj.checkedId}
+                            pushMessageChange = {pushMessageChange}
+                            pushMessCountAdd = {pushMessCountAdd}
+                            pushMessCountDelete = {pushMessCountDelete}/>
+                        </div>
+                      </AddUserBlock>
+                    : null
+                }
+
+                {
+                  interactShow
+                    ? <AddUserBlock
+                    title = '相框互动'>
+                    <div style={this.style.blockRadio}>
+                      <Radio
+                        text = '没有'
+                        isChecked = {interactCheckedObj.firstRadioChecked}
+                        radioChange = {interactCheckedChange}/>
+                      <Radio
+                        text = '有'
+                        isChecked = {!interactCheckedObj.firstRadioChecked}
+                        radioChange = {interactCheckedChange}/>
+                    </div>
+                    {
+                      interactCheckedObj.firstRadioChecked
+                        ? null
+                        : <div>
+                            <h4
+                              style = {this.style.radioHaveMessageTitle}>
+                              互动角色信息
+                            </h4>
+                            <LabelInput
+                              id = 'interactPhone'
+                              labelName = '手机号码'
+                              value = {interactCheckedObj.interactPhone}
+                              getInputValue = {getInteractInput}/>
+                            <LabelInput
+                              id = 'interactName'
+                              value = {interactCheckedObj.interactName}
+                              labelName = '姓名'
+                              getInputValue = {getInteractInput}/>
+                            <LabelInput
+                              id = 'interactUid'
+                              labelName = 'UID'
+                              width = '84px'
+                              disabled = {true}
+                              defaultValue = {interactCheckedObj.uid}/>
+                          </div>
+                    }
+                  </AddUserBlock>
+                    : null
+                }
+              </div>
+              <div style = {this.style.homeRight}>
+                <AddUserBlock
+                  title = '权限'
+                  width = '269px'>
+                  <PermissionList
+                    permissionList = {permissionList}
+                    permissionCheckedList = {permissionCheckedList.list}
+                    permissionCheckedClick = {permissionChecked}/>
+                </AddUserBlock>
+              </div>
             </div>
-            <div style = {this.style.homeRight}>
-              <AddUserBlock
-                title = '权限'
-                width = '269px'>
-                <PermissionList
-                  permissionList = {permissionList}
-                  permissionCheckedList = {permissionCheckedList.list}
-                  permissionCheckedClick = {permissionChecked}/>
-              </AddUserBlock>
+            <div style = {this.style.homeButton}>
+              <Button
+                name = '取消'
+                fontSize = '16px'
+                borderColor = '#d6d6d6'
+                backgroundColor = '#e6e6e6'
+                color = '#323232'
+                buttonClick = {cancelClick}/>
+              <Button
+                name = '确定'
+                fontSize = '16px'
+                borderColor = '#00b03d'
+                backgroundColor = '#2ec75d'
+                color = '#ffffff'
+                buttonClick = {submitClick}/>
             </div>
           </div>
-          <div style = {this.style.homeButton}>
-            <Button
-              name = '取消'
-              fontSize = '16px'
-              borderColor = '#d6d6d6'
-              backgroundColor = '#e6e6e6'
-              color = '#323232'/>
-            <Button
-              name = '确定'
-              fontSize = '16px'
-              borderColor = '#00b03d'
-              backgroundColor = '#2ec75d'
-              color = '#ffffff'
-              buttonClick = {submitClick}/>
-          </div>
+          {
+            alertObj.isShowAlert
+              ?<Alert
+                alertText = {alertObj.alertText}
+                closeClick = {alertClick}/>
+              : null
+          }
         </div>
-        {
-          alertObj.isShowAlert
-            ?<Alert
-              alertText = {alertObj.alertText}
-              closeClick = {alertClick}/>
-            : null
-        }
       </div>
     );
   }
@@ -286,6 +300,7 @@ EditUserContainer.propTypes = {
   interactCheckedObj: PropTypes.object.isRequired,
   interactCheckedChange: PropTypes.func.isRequired,
   submitClick: PropTypes.func.isRequired,
+  cancelClick: PropTypes.func.isRequired,
   getUserMessageInput: PropTypes.func.isRequired,
   userInputValue: PropTypes.object.isRequired,
   getInteractInput: PropTypes.func.isRequired,
@@ -322,6 +337,7 @@ export default connect(
     permissionChecked,
     interactCheckedChange,
     submitClick,
+    cancelClick,
     getUserMessageInput,
     getInteractInput,
     alertClick,

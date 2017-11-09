@@ -1,4 +1,4 @@
-// import Config from '../configs/config';
+import Config from '../configs/config';
 import {
   GET_ROLE_LIST,
   GET_PERMISSION_LIST,
@@ -367,7 +367,8 @@ const pushInteractShow = (id) => {
                   dispatch(interactCheckedChange());
                   dispatch(getInteractInput({
                     interactPhone: _userData.interactPhone,
-                    interactName: _userData.interactName
+                    interactName: _userData.interactName,
+                    uid: _userData.interactUid
                   }));
                 }
               } else if (_resourceObj['module_push_limit']) {
@@ -458,20 +459,11 @@ export const pushMessCountAdd = (id) => {
 
     if (r.test(id)) {
       if (parseInt(id) > 5) {
-        let repeat = false;
+        let obj = {};
+        obj.id = parseInt(id);
+        obj.name = id + '条';
 
-        for (let i in _mess.list) {
-          if (_mess.list[i].id == id) {
-            repeat = true;
-          }
-        }
-
-        if (!repeat) {
-          let obj = {};
-          obj.id = parseInt(id);
-          obj.name = id + '条';
-          _mess.list.push(obj);
-        }
+        _mess.list.push(obj);
         _mess.checkedId = parseInt(id);
         _mess.isShowInputButton = false;
       } else {
@@ -529,16 +521,20 @@ const interactCheckedAction = (info) => {
 export const interactCheckedChange = () => {
 
   return (dispatch, getState) => {
-    let _userData = getState().editUser.getUser;
+    // let _userData = getState().editUser.getUser;
     let _state = getState();
     let _mess = _state.addUser.interactChecked;
 
     _mess.firstRadioChecked = !_mess.firstRadioChecked;
 
     if (!_mess.firstRadioChecked) {
-      if (_isEdit && _userData.interactUid) {
-        _mess.uid = _userData.interactUid;
-      } else {
+      // if (_isEdit && _userData.interactUid) {
+      //   _mess.uid = _userData.interactUid;
+      // } else {
+      //   dispatch(getUid(UidType));
+      // }
+      if (!_isEdit) {
+        console.log('1111111');
         dispatch(getUid(UidType));
       }
     }
@@ -716,10 +712,12 @@ export const submitClick = () => {
         let _jsonResp = json.response;
 
         if (!$.isEmptyObject(_jsonResp) && _jsonResp.code == 1) {
-          dispatch(getAlertAction({
-            isShowAlert: true,
-            alertText: '添加成功'
-          }));
+          // dispatch(getAlertAction({
+          //   isShowAlert: true,
+          //   alertText: '添加成功'
+          // }));
+          console.log(_jsonResp.info.userIdEncry);
+          location.href = Config.rootDir + 'edit/' + _jsonResp.info.userIdEncry;
         } else {
           dispatch(getAlertAction({
             isShowAlert: true,
@@ -735,4 +733,9 @@ export const submitClick = () => {
       }
     });
   };
+};
+
+//取消
+export const cancelClick = () => {
+  location.href = Config.rootDir + 'add';
 };
