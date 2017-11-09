@@ -71,6 +71,7 @@ class UserList extends Component {
                 key = { i }
                 editUserStatus = { this.props.editUserStatus }
                 delUser = { this.props.delUser }
+                goHerf = { this.props.goHerf }
                 />;
             }
           }) : ''

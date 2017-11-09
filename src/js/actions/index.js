@@ -1,11 +1,10 @@
-// import Config from '../configs/config';
+import Config from '../configs/config';
 import {
   GET_ROLE_LIST,
   GET_USER_LIST,
-  EDIT_USER_STATUS,
-  DEL_USER
 } from '../constants/actionsTypes';
 import $ from 'jquery';
+import { browserHistory } from 'react-router';
 
 const getRoleListAction = (info) => {
   return {
@@ -85,27 +84,25 @@ export function getUserList() {
   };
 }
 
-const editUserStatusAction = (info) => {
-  return {
-    type: EDIT_USER_STATUS,
-    info: info
-  };
-}
-
 export function editUserStatus(info) {
-  console.log(info)
-  return dispatch => {
-    let type = 'lock';
+  return (dispatch, getState) => {
+    let _state = getState();
+    let _userlist = _state.home.getUserList.list;
+    for (let i = 0; i < _userlist.length; i++) {
+        if (_userlist[i].userIdEncry == info.id) {
+          _userlist[i].status = 1;
+        }
+    }
+    let type = info.status == 1 ? 'unlock' : 'lock';
     $.ajax({
-      url: '/v2/admin/api/users/' + info.id + '/statuses',
-      contentType: 'application/json',
-      dataType: 'json',
-      type: 'PATCH',
+      url: `/v2/admin/api/users/${info.id}/statuses.json`,
+      type: 'patch',
       data: { operType: type } ,
       success: function(res) {
         let _res = res.response;
-        console.log(_res);
-        dispatch(editUserStatusAction(_res));
+        if (res.response.code == 1) {
+          dispatch(getUserList(_userlist))
+        }
       }
     });
   };
@@ -132,4 +129,8 @@ export function delUser(info) {
       }
     });
   };
+}
+
+export function goHerf(info) {
+  browserHistory.push(Config.rootDir + info.url + '/' + info.data);
 }
