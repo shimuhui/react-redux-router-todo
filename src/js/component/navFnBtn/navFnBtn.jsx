@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router'
 import './navFnBtn.scss';
+import PropTypes from 'prop-types';
 
 class NavFnBtn extends Component {
   constructor(props) {
@@ -12,6 +13,11 @@ class NavFnBtn extends Component {
       <span className = "name">{ this.props.name }</span>
     </Link>;
   }
+}
+
+NavFnBtn.propTypes = {
+  icon: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired
 }
 
 export default NavFnBtn;
