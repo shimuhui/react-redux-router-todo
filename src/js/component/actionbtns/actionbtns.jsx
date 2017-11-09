@@ -1,24 +1,23 @@
 import React, {Component} from 'react';
-import { Link } from "react-router";
 import PropTypes from 'prop-types';
 import './actionbtns.scss';
 
 class Actionbtns extends Component {
   constructor(props) {
     super(props);
+    this._goHerf = this._goHerf.bind(this);
   }
   render() {
     let btnStatus = {
       edit: this.props.status == 2 ? 'btn' : 'btn toggleClass',
       lock: this.props.status == 1 ? '解锁' : '锁定'
     };
-    let editUrl = '/editUser/:' + this.props.id;
     return <ul className = "actionbtns">
       <li className = {btnStatus.edit}>
-        <Link to = { editUrl }>
+        <div onClick = { this._goHerf }>
           <span className = "icon">+</span>
           <span className = "name">编辑</span>
-        </Link>
+        </div>
       </li>
       <li className = "btn">
         <div onClick = { this.props.editUserStatus }>
@@ -34,13 +33,22 @@ class Actionbtns extends Component {
       </li>
     </ul>
   }
+
+  _goHerf() {
+    let herf = {
+      url: 'edit',
+      data: this.props.id
+    }
+    this.props.goHerf(herf);
+  }
 }
 
 Actionbtns.propTypes = {
   status: PropTypes.string.isRequired,
   editUserStatus: PropTypes.func.isRequired,
   delUser: PropTypes.func.isRequired,
-  id: PropTypes.string.isRequired
+  id: PropTypes.string.isRequired,
+  goHerf: PropTypes.func.isRequired
 }
 
 export default Actionbtns;

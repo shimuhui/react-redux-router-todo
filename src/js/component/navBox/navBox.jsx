@@ -28,6 +28,7 @@ class NavBox extends Component {
         defaultStyle.navTitles.map((v, i) => {
           return <BreadCrumb
             url = { defaultStyle.url[i] }
+            goHerf = { this.props.goHerf }
             name = { v }
             show = { defaultStyle.navTitles.length > 1 ? true : false }
             aBgColor = { defaultStyle.borderColor[i+1] }
@@ -37,7 +38,11 @@ class NavBox extends Component {
       </div>
 
       <div className = { _btnShow }>
-        <NavFnBtn name = { defaultStyle.btnName || ''} icon = "+"/>
+        <NavFnBtn
+        name = { defaultStyle.btnName || ''}
+        icon = "+"
+        goHerf = { this.props.goHerf }
+        />
       </div>
     </div>
   }
