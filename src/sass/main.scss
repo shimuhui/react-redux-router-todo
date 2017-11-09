@@ -1,10 +1,21 @@
 @import "_reset.scss";
 
-
+html{
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+}
 body{
+  width: 100%;
+  height: 100%;
   background-color: #a8cce6;
   font-family: PingFangSC-Regular;
   font-size: 14px;
+}
+#app {
+  width: 100%;
+  height: 100%;
 }
 .userWrapper{
   display: flex;
@@ -21,4 +32,24 @@ body{
   background-color: #fff;
   box-shadow:0 1px 2px 0 #629ec8;
   border-radius:2px;
+}
+
+
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+::-webkit-scrollbar
+{
+  width: 3px;
+  height: 0px;
+}
+
+/*定义滚动条轨道 内阴影+圆角*/
+::-webkit-scrollbar-track
+{
+}
+
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb
+{
+  border-radius: 100px;
+  background-color: #d8d8d8;
 }

@@ -1,12 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// import './_input.scss';
-
-class input extends React.Component {
+class Input extends React.Component {
   constructor(props) {
     super(props);
-    this._focus = this._focus.bind(this);
+    this._onChange = this._onChange.bind(this);
   }
 
   componentWillMount() {
@@ -23,17 +21,14 @@ class input extends React.Component {
         paddingLeft: paddingLeft,
         paddingRight: paddingRight,
         boxSizing: 'border-box',
-        width: width ? width : '362px',
-        height: height ? height : '28px',
+        width: width,
+        height: height,
         color: '#323232',
         fontSize: '12px',
         background: '#ffffff',
         border: '1px solid',
         borderRadius: '2px',
-        borderColor:
-          borderColor
-            ? borderColor
-            : '#e0e0e0',
+        borderColor: borderColor,
       }
     };
   }
@@ -44,11 +39,22 @@ class input extends React.Component {
 
   _blur(e) {
     e.target.style.borderColor = this.style.inputStyle.borderColor;
+  }
 
-    this.props.inputChange(this.myinput);
+  _onChange(id) {
+    let obj = {};
+    obj[id] = this.myinput.value;
+    console.log(obj);
+    this.props.getInputValue(obj);
   }
 
   render() {
+    const {
+      id,
+      value,
+      disabled,
+      defaultValue,
+    } = this.props;
 
     return (
       <div>
@@ -56,15 +62,19 @@ class input extends React.Component {
           type = "text"
           ref={(input) => {this.myinput = input;}}
           style = {this.style.inputStyle}
-          id = {this.props.id}
+          id = {id}
+          disabled = {disabled}
+          placeholder = {defaultValue}
+          value = {value}
           onFocus = { (e) => { this._focus(e); } }
-          onBlur = { (e) => { this._blur(e); } }/>
+          onBlur = { (e) => { this._blur(e); } }
+          onChange = {() => { this._onChange(id);}}/>
       </div>
     );
   }
 }
 
-input.propTypes = {
+Input.propTypes = {
   width: PropTypes.string,
   height: PropTypes.string,
   borderColor: PropTypes.string,
@@ -72,13 +82,23 @@ input.propTypes = {
   id: PropTypes.string,
   paddingLeft: PropTypes.string,
   paddingRight: PropTypes.string,
-  inputChange: PropTypes.func.isRequired,
+  getInputValue: PropTypes.func,
+  value: PropTypes.string,
+  disabled: PropTypes.bool,
+  defaultValue: PropTypes.string,
 };
 
-input.defaultProps = {
+Input.defaultProps = {
+  value: '',
   borderFocusColor: '#2ec75d',
   paddingLeft: '10px',
-  paddingRight: '10px,'
+  paddingRight: '10px',
+  width: '362px',
+  height: '28px',
+  borderColor: '#e0e0e0',
+  disabled: false,
+  defaultValue: '',
+  getInputValue: () => {},
 };
 
-export default input;
+export default Input;

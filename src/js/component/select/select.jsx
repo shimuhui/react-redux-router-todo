@@ -2,9 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Config from '../../configs/config.js';
 
-class select extends React.Component {
+class Select extends React.Component {
   constructor(props) {
     super(props);
+    this._change = this._change.bind(this);
   }
 
   componentWillMount() {
@@ -31,38 +32,59 @@ class select extends React.Component {
         backgroundRepeat: 'no-repeat',
         backgroundPositionX: iconMargin,
         backgroundPositionY: 'center',
+        cursor: 'pointer',
       },
     };
   }
+  _change(id) {
+    let obj = {};
+    obj[id] = this.myselect.value;
+    this.props.getSelectValue(obj);
+  }
 
   render() {
+    const {
+      id,
+      selectList,
+      value,
+    } = this.props;
 
     return (
       <div>
         <select
           name=""
-          id = {this.props.id}
-          style = {this.style.select}
-        >
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
+          id = {id}
+          ref={(select) => {this.myselect = select;}}
+          onChange = {() => { this._change(id);}}
+          value = {value}
+          style = {this.style.select}>
+          {
+            selectList.map((item, id) => {
+              return (<option
+                key = {id}
+                value = {item.id}>{item.companyName}</option>);
+            })
+          }
         </select>
       </div>
     );
   }
 }
 
-select.propTypes = {
+Select.propTypes = {
   id: PropTypes.string.isRequired,
   width: PropTypes.string,
   height: PropTypes.string,
+  selectList: PropTypes.array,
+  getSelectValue: PropTypes.func.isRequired,
+  value: PropTypes.string,
 };
 
-select.defaultProps = {
-  width: '364px',
-  height: '30px',
+Select.defaultProps = {
+  width: '362px',
+  height: '28px',
+  selectList: [],
+  value: ''
 };
 
-export default select;
+export default Select;

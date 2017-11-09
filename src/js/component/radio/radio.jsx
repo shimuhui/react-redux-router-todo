@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Input from '../input/input.jsx';
-import './_radio.scss';
 
-class radio extends React.Component {
+class Radio extends React.Component {
   constructor(props) {
     super(props);
     this._checkClick = this._checkClick.bind(this);
@@ -21,6 +20,15 @@ class radio extends React.Component {
         marginRight: '50px',
         fontSize: '12px',
         color: '#323232',
+        cursor: 'pointer',
+      },
+      radioButtonStyle: {
+        position: 'relative',
+        display: 'block',
+        marginRight: '6px',
+        width: '10px',
+        height: '10px',
+        borderRadius: '50%',
       },
       radioButtonEmStyle: {
         display: 'block',
@@ -40,11 +48,6 @@ class radio extends React.Component {
   }
 
   _checkClick() {
-
-    this.setState({
-      checked: !this.state.checked,
-    });
-
     this.props.radioChange();
   }
 
@@ -52,19 +55,24 @@ class radio extends React.Component {
     const {
       radioInputChange,
       text,
-      isShowInput
+      isShowInput,
+      isChecked
     } = this.props;
 
     return (
-      <div style = {this.style.radioStyle}>
+      <div
+        style = {this.style.radioStyle}
+        onClick = {this._checkClick}>
         <span
           className = 'radioButtonStyle'
-          onClick = {this._checkClick}
-          style = {
-            this.state.checked
-            ? {backgroundColor: '#2ec75d'}
-            : {backgroundColor: '#cccccc'}
-          }>
+          style = {isChecked
+            ? Object.assign({},
+              this.style.radioButtonStyle,
+              {backgroundColor: '#2ec75d'})
+            : Object.assign({},
+              this.style.radioButtonStyle,
+              {backgroundColor: '#cccccc'})}
+          >
           <em style = {this.style.radioButtonEmStyle}></em>
         </span>
         {text}
@@ -89,12 +97,18 @@ class radio extends React.Component {
   }
 }
 
-radio.propTypes = {
+Radio.propTypes = {
   text: PropTypes.string.isRequired,
   isChecked: PropTypes.bool,
   isShowInput: PropTypes.bool,
   radioChange: PropTypes.func.isRequired,
-  radioInputChange: PropTypes.func.isRequired,
+  radioInputChange: PropTypes.func,
 };
 
-export default radio;
+Radio.defaultProps = {
+  radioInputChange: () => {},
+  isChecked: false,
+  isShowInput: false,
+};
+
+export default Radio;

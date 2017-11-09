@@ -1,9 +1,10 @@
-// import Config from '../configs/config';
+import Config from '../configs/config';
 import {
   GET_ROLE_LIST,
   GET_USER_LIST,
 } from '../constants/actionsTypes';
 import $ from 'jquery';
+import { browserHistory } from 'react-router';
 
 const getRoleListAction = (info) => {
   return {
@@ -128,4 +129,8 @@ export function delUser(info) {
       }
     });
   };
+}
+
+export function goHerf(info) {
+  browserHistory.push(Config.rootDir + info.url + '/' + info.data);
 }

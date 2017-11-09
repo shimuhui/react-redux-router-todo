@@ -2,9 +2,14 @@ import {combineReducers} from 'redux';
 
 import {routerReducer as routing} from 'react-router-redux';
 
-import home from './home';//
+import addUser from './addUser';
+import editUser from './editUser';
+import home from './home';
+
 export default combineReducers({
   routing,
+  addUser,
+  editUser,
   home,
 });
 

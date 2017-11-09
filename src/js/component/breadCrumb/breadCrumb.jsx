@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import { Link } from 'react-router'
 import './breadCrumb.scss';
 import PropTypes from 'prop-types';
 
 class BreadCrumb extends Component {
   constructor(props) {
     super(props);
+    this._goHerf = this._goHerf.bind(this);
   }
   render() {
     let styles = {
@@ -17,7 +17,7 @@ class BreadCrumb extends Component {
         }
     };
     let sanJiaoClass = this.props.show ? 'sanJiao' : 'sanJiao showSanJiao';
-    return <Link to = {this.props.url}
+    return <div onClick = {this._goHerf}
       style = { styles.aBgColor }
     className = 'breadCrumb'>
       <span
@@ -28,7 +28,15 @@ class BreadCrumb extends Component {
         style = { styles.border }
       >
       </span>
-    </Link>;
+    </div>;
+  }
+
+  _goHerf() {
+    let herf = {
+      url: this.props.url,
+      data: ''
+    }
+    this.props.goHerf(herf);
   }
 }
 
@@ -36,7 +44,8 @@ BreadCrumb.propTypes = {
   url: PropTypes.string.isRequired,
   aBgColor: PropTypes.string.isRequired,
   borderColor: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired
+  name: PropTypes.string.isRequired,
+  goHerf: PropTypes.func.isRequired
 };
 
 export default BreadCrumb;

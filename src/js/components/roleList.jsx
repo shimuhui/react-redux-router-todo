@@ -2,40 +2,33 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import OvalLabel from '../component/ovalLabel/ovalLabel.jsx';
 
-class ovalLabelGroup extends React.Component {
+class RoleList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      isCheckedId: 0,
-    };
   }
 
   componentDidMount() {
   }
 
   componentWillMount() {
+
     this.style = {
       ovalLabelGroupStyle: {
         display: 'flex',
         flexWrap: 'wrap',
-      }
+      },
     };
   }
 
-  _ovalLabelClick(id) {
-    console.log(this.state.isCheckedId);
-    this.setState({
-      isCheckedId: id,
-    });
+  _roleChangeClick(id, name) {
+    this.props.changeClick(id, name);
   }
 
   render() {
     const {
-      marginTop,
-      marginRight,
       ovalData,
+      isCheckedId,
     } = this.props;
-
 
     return (
       <div style = {this.style.ovalLabelGroupStyle}>
@@ -46,10 +39,9 @@ class ovalLabelGroup extends React.Component {
                 <OvalLabel
                   ovalLabelId = {item.id}
                   labelName = {item.name}
-                  marginTop = {marginTop}
-                  marginRight = {marginRight}
-                  isChecked = {this.state.isCheckedId == id ? true:false}
-                  ovalLabelClick = {() => {this._ovalLabelClick(id);}}/>
+                  isChecked = {isCheckedId == item.id ? true:false}
+                  ovalLabelClick = {
+                    () => {this._roleChangeClick(item.id, item.name);}}/>
               </div>
             );
           })
@@ -59,16 +51,14 @@ class ovalLabelGroup extends React.Component {
   }
 }
 
-ovalLabelGroup.propTypes = {
-  marginTop: PropTypes.string,
-  marginRight: PropTypes.string,
+RoleList.propTypes = {
   ovalData: PropTypes.array.isRequired,
+  changeClick: PropTypes.func.isRequired,
+  isCheckedId: PropTypes.number.isRequired,
 };
 
-ovalLabelGroup.defaultProps = {
-  marginTop: '12px',
-  marginRight: '11px',
+RoleList.defaultProps = {
   ovalData: [],
 };
 
-export default ovalLabelGroup;
+export default RoleList;

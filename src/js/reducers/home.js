@@ -2,7 +2,7 @@ import {combineReducers} from 'redux';
 import assign from 'lodash.assign';
 import {
   GET_ROLE_LIST,
-  GET_USER_LIST,
+  GET_USER_LIST
 } from '../constants/actionsTypes';
 
 const getRoleList = (state = {
@@ -16,10 +16,6 @@ const getRoleList = (state = {
   }
 };
 
-export const getRoleListState = (state) => {
-  return state.home.getRoleList.list;
-};
-
 const getUserList = (state = {
   list: []
 }, action) => {
@@ -30,6 +26,12 @@ const getUserList = (state = {
       return state;
   }
 };
+
+export const getRoleListState = (state) => {
+  return state.home.getRoleList.list;
+};
+
+
 
 export const getUserListState = (state) => {
   return state.home.getUserList.list;

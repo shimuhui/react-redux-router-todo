@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class input extends React.Component {
+class Button extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -21,6 +21,7 @@ class input extends React.Component {
         width: width,
         height: height,
         lineHeight: height,
+        boxSizing: 'border-box',
         textAlign: 'center',
         fontSize: fontSize,
         color: color,
@@ -28,6 +29,7 @@ class input extends React.Component {
         border: '1px solid',
         borderRadius: '3px',
         borderColor: borderColor,
+        cursor: 'pointer',
       }
     };
   }
@@ -36,13 +38,15 @@ class input extends React.Component {
 
     return (
       <div>
-        <div style = {this.style.buttonStyle}>{this.props.name}</div>
+        <div
+          style = {this.style.buttonStyle}
+          onClick = {this.props.buttonClick}>{this.props.name}</div>
       </div>
     );
   }
 }
 
-input.propTypes = {
+Button.propTypes = {
   name: PropTypes.string.isRequired,
   width: PropTypes.string,
   height: PropTypes.string,
@@ -50,12 +54,14 @@ input.propTypes = {
   borderColor: PropTypes.string.isRequired,
   backgroundColor: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired,
+  buttonClick: PropTypes.func,
 };
 
-input.defaultProps = {
+Button.defaultProps = {
   width: '98px',
-  height: '34px',
+  height: '36px',
   fontSize: '14px',
+  buttonClick: () => {},
 };
 
-export default input;
+export default Button;

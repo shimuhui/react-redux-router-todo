@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class addUserBlock extends React.Component {
+class AddUserBlock extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -46,14 +46,14 @@ class addUserBlock extends React.Component {
   }
 }
 
-addUserBlock.propTypes = {
+AddUserBlock.propTypes = {
   title: PropTypes.string.isRequired,
   width: PropTypes.string,
   children: PropTypes.node,
 };
 
-addUserBlock.defaultProps = {
+AddUserBlock.defaultProps = {
   width: '488px',
 };
 
-export default addUserBlock;
+export default AddUserBlock;
