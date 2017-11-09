@@ -7,7 +7,7 @@ import { Router, browserHistory } from 'react-router';
 /* react-redux */
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import {createLogger} from 'redux-logger';
+import { createLogger } from 'redux-logger';
 import thunk from 'redux-thunk';
 import { syncHistoryWithStore } from 'react-router-redux';
 
@@ -19,7 +19,7 @@ import reducer from './reducers';
 //const appHistory = browserHistory;
 
 const middleware = process.env.NODE_ENV === 'production'
-  ? [thunk] :[thunk, createLogger()];
+?[ thunk ] :[ thunk, createLogger() ];
 
 const store = createStore(
   reducer,

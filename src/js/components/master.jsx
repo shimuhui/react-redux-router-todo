@@ -15,7 +15,8 @@ class Master extends React.Component {
         } = this.props;
         return (
           <div className = "userWrapper">
-              <LeftNav isNavSelected = 'user'/>
+              <LeftNav
+                name = '用户'/>
               { children }
           </div>
         );
@@ -23,6 +24,5 @@ class Master extends React.Component {
 }
 Master.propTypes = {
   children: PropTypes.node.isRequired,
-  params: PropTypes.object,
 };
 export default Master;

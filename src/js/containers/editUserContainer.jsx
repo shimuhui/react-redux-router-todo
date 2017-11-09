@@ -28,6 +28,10 @@ import {
 } from '../actions/addUser';
 
 import {
+  goHerf
+} from '../actions/index';
+
+import {
   getRoleListState,
   getPermissionListState,
   getPartnersListState,
@@ -122,6 +126,7 @@ class EditUserContainer extends Component {
       getInteractInput,
       alertObj,
       alertClick,
+      goHerf,
     } = this.props;
 
     return (
@@ -129,11 +134,12 @@ class EditUserContainer extends Component {
         <NavBox
           navTitles = {['用户', '编辑用户']}
           url = {
-            ['/admin/user/edit/add',
-              '/admin/user/edit/edit/' + this.props.params.id]}
+            ['index',
+              'edit/' + this.props.params.id]}
           borderColor = {[]}
           btnShow = {false}
-          btnName = {''}/>
+          btnName = {''}
+          goHerf = {goHerf}/>
         <div className = "rightMain">
           <div>
             <div
@@ -306,8 +312,9 @@ EditUserContainer.propTypes = {
   getInteractInput: PropTypes.func.isRequired,
   alertObj: PropTypes.object.isRequired,
   alertClick: PropTypes.func.isRequired,
-  params: PropTypes.object,
-  getUser: PropTypes.func,
+  params: PropTypes.object.isRequired,
+  getUser: PropTypes.func.isRequired,
+  goHerf: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => {
@@ -342,5 +349,6 @@ export default connect(
     getInteractInput,
     alertClick,
     getUser,
+    goHerf,
   }
 )(EditUserContainer);

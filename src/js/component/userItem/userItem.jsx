@@ -55,6 +55,7 @@ class UserItem extends Component {
             editUserStatus = {this._editUserStatus }
             delUser = { this._delUser }
             id = { this.props.userInfo.userIdEncry }
+            goHerf = { this.props.goHerf }
           />
         </div>
     </li>;

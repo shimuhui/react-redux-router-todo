@@ -13,7 +13,8 @@ import {
  import {
    getUserList,
    editUserStatus,
-   delUser
+   delUser,
+   goHerf
  } from '../actions/index';
 
 class HomeContainer extends Component {
@@ -36,7 +37,7 @@ class HomeContainer extends Component {
     }
     let _navInfo = {
       navTitles: ['用户'],
-      url: ['/add'],
+      url: [''],
       borderColor: [''],
       btnShow: true,
       btnName: '新建'
@@ -44,12 +45,15 @@ class HomeContainer extends Component {
     return (
       <div className = "mcenterContainer">
         <div className = "rightBox">
-          <NavBox { ..._navInfo }/>
+          <NavBox { ..._navInfo }
+            goHerf = { this.props.goHerf }
+          />
           { filterShow }
           <UserList
           userList = { this.props.userList.slice(0,13) }
           editUserStatus = { this.props.editUserStatus }
           delUser = { this.props.delUser }
+          goHerf = { this.props.goHerf }
           />
         </div>
       </div>
@@ -71,6 +75,7 @@ export default connect(
   {
     getUserList,
     editUserStatus,
-    delUser
+    delUser,
+    goHerf
   }
 )(HomeContainer);

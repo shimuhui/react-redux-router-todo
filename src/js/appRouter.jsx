@@ -6,18 +6,18 @@ import {
 
 import Config from './configs/config';
 import Master from './components/master.jsx';
-import Home from './containers/homeContainer.jsx';
 import AddUserContainer from './containers/addUserContainer.jsx';
 import EditUserContainer from './containers/editUserContainer.jsx';
+import HomeContainer from './containers/homeContainer.jsx';
 
 const AppRoutes = (
   <Route path={ Config.rootDir } component = { Master }>
-    <IndexRoute component = { Home } />
-    <Route path = "index" component = { Home } />
+    <IndexRoute component = { HomeContainer } />
+    <Route path = "/" component = { HomeContainer } />
+    <Route path = "index" component = { HomeContainer } />
     <Route path = "add" component = { AddUserContainer } />
     <Route path = "edit/:id" component = { EditUserContainer } />
-    <Route path = "/" component = { Home } />
-    {/* <Route path = "*" component = { NotFound } /> */}
+    {/*<Route path = "*" component = { NotFound } />*/}
   </Route>
 );
 export default AppRoutes;

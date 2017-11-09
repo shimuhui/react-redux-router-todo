@@ -368,7 +368,6 @@ const pushInteractShow = (id) => {
                   dispatch(getInteractInput({
                     interactPhone: _userData.interactPhone,
                     interactName: _userData.interactName,
-                    uid: _userData.interactUid
                   }));
                 }
               } else if (_resourceObj['module_push_limit']) {
@@ -521,20 +520,16 @@ const interactCheckedAction = (info) => {
 export const interactCheckedChange = () => {
 
   return (dispatch, getState) => {
-    // let _userData = getState().editUser.getUser;
+    let _userData = getState().editUser.getUser;
     let _state = getState();
     let _mess = _state.addUser.interactChecked;
 
     _mess.firstRadioChecked = !_mess.firstRadioChecked;
 
     if (!_mess.firstRadioChecked) {
-      // if (_isEdit && _userData.interactUid) {
-      //   _mess.uid = _userData.interactUid;
-      // } else {
-      //   dispatch(getUid(UidType));
-      // }
-      if (!_isEdit) {
-        console.log('1111111');
+      if (_isEdit && _userData.interactUid) {
+        _mess.uid = _userData.interactUid;
+      } else {
         dispatch(getUid(UidType));
       }
     }
@@ -717,7 +712,7 @@ export const submitClick = () => {
           //   alertText: '添加成功'
           // }));
           console.log(_jsonResp.info.userIdEncry);
-          location.href = Config.rootDir + 'edit/' + _jsonResp.info.userIdEncry;
+          location.href = Config.rootDir + 'index';
         } else {
           dispatch(getAlertAction({
             isShowAlert: true,
@@ -737,5 +732,5 @@ export const submitClick = () => {
 
 //取消
 export const cancelClick = () => {
-  location.href = Config.rootDir + 'add';
+  location.href = Config.rootDir + 'index';
 };

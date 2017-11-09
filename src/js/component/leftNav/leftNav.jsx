@@ -1,11 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import NavList from '../navList/navList.jsx';
+import Config from '../../configs/config.js';
 
 class LeftNav extends React.Component {
     constructor(props) {
         super(props);
+        this._navClick = this._navClick.bind(this);
     }
+
+  _navClick(url) {
+    location.href = Config.rootDir + url;
+  }
 
     render() {
         return (
@@ -13,10 +19,12 @@ class LeftNav extends React.Component {
               <ul>
                 <NavList name = '用户'
                          isNavSelected = {
-                           this.props.isNavSelected == 'user' ? true:false} />
+                           this.props.name == '用户' ? true:false}
+                          navClick = {() => {this._navClick('index');}}/>
                 <NavList name = '相框'
                          isNavSelected = {
-                           this.props.isNavSelected == 'photo' ? true:false} />
+                           this.props.name == '相框' ? true:false}
+                         navClick = {() => {this._navClick('add');}}/>
               </ul>
             </div>
         );
@@ -24,7 +32,7 @@ class LeftNav extends React.Component {
 }
 
 LeftNav.propTypes = {
-  isNavSelected: PropTypes.string,
+  name: PropTypes.string,
 };
 
 const styles = {
