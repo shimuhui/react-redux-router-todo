@@ -8,7 +8,6 @@ class UserTips extends Component {
   }
 
   componentWillMount() {
-    console.log(this.props);
     const {
       width,
       height,
@@ -19,9 +18,6 @@ class UserTips extends Component {
       iconWidth,
       iconHeignt,
       tipheight,
-      tipShow,
-      iconSrc,
-      tipInfoText
     } = this.props;
 
     this.styles = {
@@ -58,8 +54,8 @@ class UserTips extends Component {
     >
       <img
         src = { this.props.iconSrc }
-        style = { this.icon }/>
-      <div style = { this.tipInfo }>
+        style = { this.styles.icon }/>
+      <div style = { this.styles.tipInfo }>
         { this.props.tipInfoText }
       </div>
     </div>;
@@ -70,6 +66,8 @@ UserTips.propTypes = {
   iconSrc: PropTypes.string.isRequired,
   tipInfo: PropTypes.string.isRequired,
   width: PropTypes.string.isRequired,
+  top: PropTypes.string.isRequired,
+  left: PropTypes.string.isRequired,
   height: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired,
   fontSize: PropTypes.string.isRequired,
@@ -78,8 +76,7 @@ UserTips.propTypes = {
   iconWidth: PropTypes.string.isRequired,
   iconHeignt: PropTypes.string.isRequired,
   tipShow: PropTypes.bool.isRequired,
-  iconSrc: PropTypes.string.isRequired,
-  tipInfoText: PropTypes.string.isRequired
+  tipInfoText: PropTypes.string.isRequired,
 };
 
 export default UserTips;

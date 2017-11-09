@@ -10,17 +10,29 @@ class Filter extends Component {
     super(props);
   }
   render() {
+    let All = true;
     return <div className = "filter">
       <div className = "filterTitle">过滤器</div>
       <div className = "filterContent">
         <ul className = "leftFilterInfo">
           <li className = "selectBox">
             <span className = "selectName">状态</span>
-            <Select width = "100" height = "28"/>
+            <Select
+              width = "100px"
+              height = "28px"
+              selectList = { this.props.selectStatus }
+              value = '2'
+              />
           </li>
           <li className = "selectBox">
             <span className = "selectName">公司</span>
-            <Select width = "120" height = "28"/>
+            <Select
+              width = "120px"
+              height = "28px"
+              selectList = { this.props.selectCompany }
+              value = { this.props.selectCompany.length }
+              all = { All }
+              />
           </li>
           <li className = "selectBox">
             <span className = "selectName">用户</span>
@@ -55,5 +67,10 @@ class Filter extends Component {
     </div>;
   }
 }
+
+Filter.propTypes = {
+  selectStatus: PropTypes.array.isRequired,
+  selectCompany: PropTypes.array.isRequired
+};
 
 export default Filter;
