@@ -97,10 +97,9 @@ export function editUserStatus(info) {
   return dispatch => {
     let type = 'lock';
     $.ajax({
-      url: '/v2/admin/api/users/' + info.id + '/statuses',
-      contentType: 'application/json',
-      dataType: 'json',
-      type: 'PATCH',
+      url: `/v2/admin/api/users/${info.id}/statuses.json`,
+      // contentType: 'application/json',
+      type: 'patch',
       data: { operType: type } ,
       success: function(res) {
         let _res = res.response;
