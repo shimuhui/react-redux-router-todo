@@ -1,12 +1,31 @@
 .breadCrumb{
   width: auto;
   height: 36px;
-  padding: 0 20px;
   line-height: 36px;
   color: #727272;
   font-family: "PingFangSC-Regular";
   font-size: 14px;
+  display: block;
+  float: left;
   &:hover{
     cursor: pointer;
+  }
+  .navName{
+    display: block;
+    width: auto;
+    height: 36px;
+    float: left;
+    padding: 0 5px 0 10px;
+  }
+  .sanJiao{
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-top: 18px solid transparent;
+    border-bottom: 18px solid transparent;
+    float: left;
+  }
+  .showSanJiao{
+    display: none;
   }
 }

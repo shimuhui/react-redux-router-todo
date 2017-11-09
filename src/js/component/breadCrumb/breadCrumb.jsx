@@ -8,16 +8,34 @@ class BreadCrumb extends Component {
     super(props);
   }
   render() {
-    return <Link to = {this.props.address}
-    className = 'breadCrumb'
-      style = {{background: this.props.bg ? this.props.bg : '#fff'}}
-    >{this.props.name}</Link>;
+    let styles = {
+        border: {
+            borderLeft: 14 + 'px solid ' + this.props.borderColor,
+        },
+        aBgColor: {
+          background: this.props.aBgColor
+        }
+    };
+    let sanJiaoClass = this.props.show ? 'sanJiao' : 'sanJiao showSanJiao';
+    return <Link to = {this.props.url}
+      style = { styles.aBgColor }
+    className = 'breadCrumb'>
+      <span
+      style = {{background: this.props.borderColor ? this.props.borderColor : '#fff'}}
+      className = "navName"
+      >{this.props.name}</span>
+      <span className = { sanJiaoClass }
+        style = { styles.border }
+      >
+      </span>
+    </Link>;
   }
 }
 
 BreadCrumb.propTypes = {
-  address: PropTypes.string.isRequired,
-  bg: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
+  aBgColor: PropTypes.string.isRequired,
+  borderColor: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired
 };
 
