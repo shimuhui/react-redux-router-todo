@@ -47,19 +47,32 @@ class UserList extends Component {
     };
   }
   render() {
+    let userTipsShow;
+    let userListTitle;
+    if ( this.props.userList.length == 0) {
+      userTipsShow = <UserTips {...this.state.noUser}/>;
+      userListTitle = '';
+    } else {
+      userTipsShow = '';
+      userListTitle = <UserListTitle titles = {this.state.userListTitle}/>;
+    }
     return <div className = "userList"
       style = {this.state.userListStyle}
     >
-      <UserTips {...this.state.noUser}/>
-      <UserTips {...this.state.noFindUser}/>
-      <UserListTitle titles = {this.state.userListTitle}/>
+      { userTipsShow }
+      { userListTitle }
       <ul>
       {
         this.props.userList?
           Object.values(this.props.userList).map((v, i) => {
-            return <UserItem
-              userInfo = {v}
-              key = { i }/>;
+            if( v.status != 0 ) {
+              return <UserItem
+                userInfo = {v}
+                key = { i }
+                editUserStatus = { this.props.editUserStatus }
+                delUser = { this.props.delUser }
+                />;
+            }
           }) : ''
       }
       </ul>
