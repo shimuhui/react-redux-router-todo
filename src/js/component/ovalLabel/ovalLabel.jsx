@@ -1,52 +1,99 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Config from '../../configs/config.js';
-import './_ovalLabel.scss';
 
-class ovalLabel extends React.Component {
+class OvalLabel extends React.Component {
   constructor(props) {
     super(props);
     this._checkClick = this._checkClick.bind(this);
+    this._closeButtonClick = this._closeButtonClick.bind(this);
     this.state = {
       checked: this.props.isChecked
     };
   }
 
   componentWillMount() {
+    const {
+      marginTop,
+      marginRight,
+      height,
+    } = this.props;
+
+    this.style = {
+      ovalLabelStyle: {
+        marginTop: marginTop,
+        marginRight: marginRight,
+        cursor: 'pointer',
+      },
+      closeButton: {
+        display: 'block',
+        position: 'absolute',
+        top: '-4px',
+        right: '-4px',
+        width: '14px',
+        height: '14px',
+        borderRadius: '50%',
+        backgroundColor: '#666666',
+        backgroundImage: 'url(' + Config.imgUrl + 'close.png)',
+        backgroundSize: '6px',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center center',
+      },
+      ovalStyle: {
+        position: 'relative',
+        padding: '0 14px',
+        boxSizing: 'border-box',
+        width: '100%',
+        height: height,
+        lineHeight: height,
+        fontSize: '12px',
+        boxShadow: '0 1px 2px 0 rgba(184,240,202,0.20)',
+        border: '1px solid',
+        borderRadius: '100px',
+      },
+      ovalStyleNoChecked: {
+        color: '#727272',
+        background: '#ffffff',
+        borderColor: '#eeeeee',
+      },
+      ovalStyleChecked: {
+        color: '#2ec75d',
+        background: '#eefaf2',
+        borderColor: '#b8f0ca',
+      },
+    };
   }
 
   _checkClick() {
     this.props.ovalLabelClick();
   }
 
+  _closeButtonClick(e) {
+    e.stopPropagation();
+    this.props.closeButtonClick();
+  }
+
   render() {
     const {
-      marginTop,
-      marginRight,
-      height,
       isChecked,
     } = this.props;
-    console.log(this.props.isChecked);
-
     return (
-      <div style = {{
-        marginRight: marginRight
-      }}>
+      <div style = {this.style.ovalLabelStyle}>
         <div
-          className = 'ovalStyle'
-          style = {{
-            marginTop: marginTop,
-            height: height,
-            lineHeight: height,
-            color: isChecked? '#2ec75d' : '#727272',
-            background: isChecked ? '#eefaf2' : '#ffffff',
-            borderColor: isChecked ? '#b8f0ca' : '#eeeeee',
-          }}
+          style = {isChecked
+            ? Object.assign({},
+              this.style.ovalStyle,
+              this.style.ovalStyleChecked)
+            : Object.assign({},
+              this.style.ovalStyle,
+              this.style.ovalStyleNoChecked)}
           onClick = {this._checkClick}>
           {this.props.labelName}
           {
             this.props.isShowClose
-              ?<span style = {styles.closeButton}></span>
+              ?<span
+                style = {this.style.closeButton}
+                onClick = {this._closeButtonClick}></span>
               : ''}
         </div>
       </div>
@@ -54,36 +101,23 @@ class ovalLabel extends React.Component {
   }
 }
 
-ovalLabel.propTypes = {
+OvalLabel.propTypes = {
   labelName: PropTypes.string.isRequired,
   height: PropTypes.string,
-  marginTop: PropTypes.string.isRequired,
-  marginRight: PropTypes.string.isRequired,
+  marginTop: PropTypes.string,
+  marginRight: PropTypes.string,
   isChecked: PropTypes.bool.isRequired,
   isShowClose: PropTypes.bool,
   ovalLabelClick: PropTypes.func.isRequired,
+  closeButtonClick: PropTypes.func,
 };
 
-ovalLabel.defaultProps = {
+OvalLabel.defaultProps = {
   height: '28px',
+  marginTop: '12px',
+  marginRight: '11px',
   isShowClose: false,
+  closeButtonClick: () => {}
 };
 
-const styles = {
-  closeButton: {
-    display: 'block',
-    position: 'absolute',
-    top: '-4px',
-    right: '-4px',
-    width: '14px',
-    height: '14px',
-    borderRadius: '50%',
-    backgroundColor: '#666666',
-    backgroundImage: 'url(' + Config.imgUrl + 'close.png)',
-    backgroundSize: '6px',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center center',
-  }
-};
-
-export default ovalLabel;
+export default OvalLabel;
