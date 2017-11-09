@@ -12,6 +12,7 @@ class NavList extends React.Component {
         return (
             <div>
               <li
+                onClick = {this.props.navClick}
                 style = {
                   this.props.isNavSelected
                   ?{backgroundColor: 'rgba(255,255,255,0.16)'}
@@ -35,7 +36,8 @@ class NavList extends React.Component {
 
 NavList.propTypes = {
   name: PropTypes.string.isRequired,
-  isNavSelected: PropTypes.bool.isRequired
+  isNavSelected: PropTypes.bool.isRequired,
+  navClick: PropTypes.func.isRequired,
 };
 
 export default NavList;

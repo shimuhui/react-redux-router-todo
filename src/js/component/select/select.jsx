@@ -75,21 +75,23 @@ class Select extends React.Component {
 }
 
 Select.propTypes = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string,
   width: PropTypes.string,
   height: PropTypes.string,
   selectList: PropTypes.array,
-  getSelectValue: PropTypes.func.isRequired,
+  getSelectValue: PropTypes.func,
   value: PropTypes.string,
   all: PropTypes.bool,
 
 };
 
 Select.defaultProps = {
+  id: '-1',
   width: '362px',
   height: '28px',
   selectList: [],
-  value: ''
+  value: '',
+  getSelectValue: () => {}
 };
 
 export default Select;
