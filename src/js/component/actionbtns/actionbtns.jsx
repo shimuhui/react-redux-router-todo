@@ -31,14 +31,14 @@ class Actionbtns extends Component {
           <span className = "name del">删除</span>
         </div>
       </li>
-    </ul>
+    </ul>;
   }
 
   _goHerf() {
     let herf = {
       url: 'edit',
       data: this.props.id
-    }
+    };
     this.props.goHerf(herf);
   }
 }
@@ -49,6 +49,6 @@ Actionbtns.propTypes = {
   delUser: PropTypes.func.isRequired,
   id: PropTypes.string.isRequired,
   goHerf: PropTypes.func.isRequired
-}
+};
 
 export default Actionbtns;

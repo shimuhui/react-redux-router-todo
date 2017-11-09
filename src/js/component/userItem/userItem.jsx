@@ -14,7 +14,6 @@ class UserItem extends Component {
     let cTimeNew = cTime.toLocaleDateString();
     let lastLoginTime = new Date(this.props.userInfo.lastLoginTime);
     let lastLoginTimeNew = lastLoginTime.toLocaleDateString();
-    console.log(cTimeNew);
     return <li className = 'userItem'>
         <ul className = 'userInfo'
           id = { this.props.userInfo.userIdEncry }
@@ -65,8 +64,8 @@ class UserItem extends Component {
     let info = {
       id: this.refs.item.id,
       status: this.refs.item.type
-    }
-    this.props.editUserStatus(info)
+    };
+    this.props.editUserStatus(info);
   }
 
   _delUser() {
@@ -78,7 +77,9 @@ UserItem.propTypes = {
   userInfo: PropTypes.array.isRequired,
   editUserStatus: PropTypes.func.isRequired,
   delUser: PropTypes.func.isRequired,
-  userIdEncry: PropTypes.string.isRequired
+  userIdEncry: PropTypes.string.isRequired,
+  status: PropTypes.string.isRequired,
+  goHerf: PropTypes.func.isRequired
 };
 
 export default UserItem;

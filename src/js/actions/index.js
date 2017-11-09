@@ -2,6 +2,7 @@ import Config from '../configs/config';
 import {
   GET_ROLE_LIST,
   GET_USER_LIST,
+  GET_USER_STATUS
 } from '../constants/actionsTypes';
 import $ from 'jquery';
 import { browserHistory } from 'react-router';
@@ -34,6 +35,7 @@ export const radioChange = () => {
     }));
   };
 };
+
 export const radioInputChange = () => {
   return (dispatch) => {
     dispatch(radioInputChangeAction({
@@ -50,7 +52,6 @@ export function getRoleList() {
       data: {},
       success: function(json) {
         let _jsonResp = json.response;
-        console.log(_jsonResp);
         if (!$.isEmptyObject(_jsonResp)) {
           dispatch(getRoleListAction(_jsonResp));
         }
@@ -78,7 +79,9 @@ export function getUserList() {
       dataType: 'json',
       success: function(res) {
         let _res = res.response;
-        dispatch(getUserListAction(_res));
+        if (_res.code == 1) {
+          dispatch(getUserListAction(_res));
+        }
       }
     });
   };
@@ -97,11 +100,11 @@ export function editUserStatus(info) {
     $.ajax({
       url: `/v2/admin/api/users/${info.id}/statuses.json`,
       type: 'patch',
-      data: { operType: type } ,
+      data: { operType: type },
       success: function(res) {
         let _res = res.response;
-        if (res.response.code == 1) {
-          dispatch(getUserList(_userlist))
+        if (_res.code == 1) {
+          dispatch(getUserList(_userlist));
         }
       }
     });
@@ -112,11 +115,11 @@ export function delUser(info) {
   return (dispatch, getState) => {
     let _state = getState();
     let _userlist = _state.home.getUserList.list;
-    for(let i = 0;i < _userlist.length; i++) {
-      if( _userlist[i].userIdEncry == info ) {
+    for (let i = 0; i < _userlist.length; i++) {
+      if (_userlist[i].userIdEncry == info) {
         _userlist.splice(i, 1);
       }
-    };
+    }
     $.ajax({
       url: '/v2/admin/api/users/' + info,
       type: 'DELETE',
@@ -124,7 +127,7 @@ export function delUser(info) {
       data: { userIdEncry: info },
       success: function(res) {
         if (res.response.code == 1) {
-          dispatch(getUserList(_userlist))
+          dispatch(getUserList(_userlist));
         }
       }
     });
@@ -132,5 +135,29 @@ export function delUser(info) {
 }
 
 export function goHerf(info) {
-  browserHistory.push(Config.rootDir + info.url + '/' + info.data);
+  return () => {
+    browserHistory.push(Config.rootDir + info.url + '/' + info.data);
+  };
+}
+
+const getUsreStatusAction = (info) => {
+  return {
+    type: GET_USER_STATUS,
+    info: info
+  };
+};
+
+export function getUserStatus() {
+  return (dispatch) => {
+      $.ajax({
+        url: '/v2/admin/api/users/status',
+        type: 'GET',
+        dataType: 'json',
+        success: function(res) {
+          if (res.response.code == 1) {
+            dispatch(getUsreStatusAction(res.response));
+          }
+        }
+      });
+  };
 }

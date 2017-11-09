@@ -27,7 +27,8 @@ class NavFnBtn extends Component {
 
 NavFnBtn.propTypes = {
   icon: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired
-}
+  name: PropTypes.string.isRequired,
+  goHerf: PropTypes.func.isRequired
+};
 
 export default NavFnBtn;
