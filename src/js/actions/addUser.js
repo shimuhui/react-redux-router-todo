@@ -48,7 +48,7 @@ const getUserAction = (info) => {
 
 //编辑-获取用户信息
 export const getUser = (id) => {
-  console.log(id);
+
   return dispatch => {
     $.ajax({
       url: '/v2/admin/api/users/' + id,

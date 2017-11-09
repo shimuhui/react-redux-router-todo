@@ -44,7 +44,7 @@ class InputButton extends React.Component {
         <Input
           id = {this.props.id}
           width = '366px'
-          height = '29px'
+          height = '30px'
           value = {this.state.inputValue}
           getInputValue = {this._inputChange}
           isEmptyValue = {this.state.isEmptyValue}
@@ -52,7 +52,7 @@ class InputButton extends React.Component {
         <Button
           name = '确定'
           width = '66px'
-          height = '28px'
+          height = '30px'
           borderColor = {isChange ? '#00b03d' : '#dddddd'}
           backgroundColor = {isChange ? '#2ec75d' : 'r#eeeeeeed'}
           color = {isChange ? '#ffffff' : '#999999'}

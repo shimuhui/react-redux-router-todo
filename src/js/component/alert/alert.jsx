@@ -89,10 +89,10 @@ class Alert extends React.Component {
     return (
       <div style = {this.style.alert}>
         <div
+          onClick = {closeClick}
           style = {this.style.alertBg}></div>
         <div
-          style = {this.style.alertMain}
-          onClick = {this.props.closeClick}>
+          style = {this.style.alertMain}>
           <h4 style = {this.style.title}>
             提示
             <em
@@ -107,7 +107,7 @@ class Alert extends React.Component {
             <Button
               name = '知道了'
               width = '76px'
-              height = '28px'
+              height = '30px'
               borderColor = '#00b03d'
               backgroundColor = '#2ec75d'
               color = '#ffffff'

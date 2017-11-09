@@ -6,7 +6,12 @@ li,ol{
   list-style-type: none;
 }
 select,input{
+  appearance: none;
   -webkit-appearance: none;
+  -moz-appearance:none;
   border: none;
+}
+select:focus{
+  outline: 0 none !important;
 }
 input:focus,select:focus{ outline:none; }
