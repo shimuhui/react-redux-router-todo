@@ -49,7 +49,7 @@ class Select extends React.Component {
       value,
     } = this.props;
     let all =
-    this.props.all ? <option value = {selectList.length}>全部</option> : '';
+    this.props.all ? <option value = '-1'>全部</option> : '';
     return (
       <div>
         <select

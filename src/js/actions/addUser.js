@@ -711,7 +711,6 @@ export const submitClick = () => {
           //   isShowAlert: true,
           //   alertText: '添加成功'
           // }));
-          console.log(_jsonResp.info.userIdEncry);
           location.href = Config.rootDir + 'index';
         } else {
           dispatch(getAlertAction({
