@@ -70,7 +70,7 @@ class HomeContainer extends Component {
           />
           { filterShow }
           <UserList
-          userList = { userList.slice(0, 13) }
+          userList = { userList.slice(0, 15) }
           editUserStatus = { editUserStatus }
           delUser = { delUser }
           goHerf = { goHerf }

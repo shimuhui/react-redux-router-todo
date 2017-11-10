@@ -11,7 +11,7 @@ class UserList extends Component {
     super(props);
     this.state = {
       userListStyle: {
-        height: 504,
+        minHeight: 504,
       },
       noUser: {
         width: 182,
@@ -23,7 +23,7 @@ class UserList extends Component {
         iconWidth: 43,
         iconHeignt: 29,
         tipheight: 14,
-        tipShow: this.props.userList == [] ? true : false,
+        tipShow: this.props.userList == '' ? true : false,
         iconSrc: Config.imgUrl + 'tipsIcon.png',
         tipInfoText: '系统刚开张，新建一个用户吧'
       },
