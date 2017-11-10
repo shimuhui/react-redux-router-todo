@@ -48,7 +48,8 @@ class Select extends React.Component {
       selectList,
       value,
     } = this.props;
-
+    let all =
+    this.props.all ? <option value = {selectList.length}>全部</option> : '';
     return (
       <div>
         <select
@@ -62,9 +63,11 @@ class Select extends React.Component {
             selectList.map((item, id) => {
               return (<option
                 key = {id}
-                value = {item.id}>{item.companyName}</option>);
+                value = {item.id}>{
+                  item.companyName ? item.companyName : item.name}</option>);
             })
           }
+          { all }
         </select>
       </div>
     );
@@ -78,6 +81,8 @@ Select.propTypes = {
   selectList: PropTypes.array,
   getSelectValue: PropTypes.func,
   value: PropTypes.string,
+  all: PropTypes.bool,
+
 };
 
 Select.defaultProps = {

@@ -2,36 +2,56 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import './mcenterContainer.scss';
-import LeftNav from '../component/leftNav/leftNav.jsx';
+
 import NavBox from '../component/navBox/navBox.jsx';
 import UserList from '../component/userList/userList.jsx';
 import Filter from '../component/filter/filter.jsx';
 import {
     getUserListState,
+    getUserStatusState
  } from '../reducers/home';
+
+import {
+  getPartnersList
+} from '../actions/addUser';
+
+import {
+  getPartnersListState,
+} from '../reducers/addUser';
 
  import {
    getUserList,
    editUserStatus,
    delUser,
-   goHerf
+   goHerf,
+   getUserStatus
  } from '../actions/index';
 
 class HomeContainer extends Component {
-  static propTypes = {
-    userList: PropTypes.array,
-    editUserStatus: PropTypes.func,
-    delUser: PropTypes.func
-  };
 
   componentWillMount() {
-    this.props.getUserList()
+    this.props.getUserList();
+    this.props.getUserStatus();
+    this.props.getPartnersList();
   }
 
   render() {
+    const {
+      userList,
+      userStatus,
+      partnersList,
+      editUserStatus,
+      delUser,
+      goHerf
+    } = this.props;
+
     let filterShow;
-    if (this.props.userList.length > 0) {
-      filterShow = <Filter/>;
+    let filterInfo = {
+      selectStatus: userStatus,
+      selectCompany: partnersList
+    };
+    if (userList.length > 0) {
+      filterShow = <Filter { ...filterInfo }/>;
     } else {
       filterShow = '';
     }
@@ -41,7 +61,7 @@ class HomeContainer extends Component {
       borderColor: [''],
       btnShow: true,
       btnName: '新建'
-    }
+    };
     return (
       <div className = "mcenterContainer">
         <div className = "rightBox">
@@ -50,10 +70,10 @@ class HomeContainer extends Component {
           />
           { filterShow }
           <UserList
-          userList = { this.props.userList.slice(0,13) }
-          editUserStatus = { this.props.editUserStatus }
-          delUser = { this.props.delUser }
-          goHerf = { this.props.goHerf }
+          userList = { userList.slice(0, 13) }
+          editUserStatus = { editUserStatus }
+          delUser = { delUser }
+          goHerf = { goHerf }
           />
         </div>
       </div>
@@ -62,11 +82,22 @@ class HomeContainer extends Component {
 }
 
 HomeContainer.propTypes = {
+  getUserList: PropTypes.func.isRequired,
+  getUserStatus: PropTypes.func.isRequired,
+  userList: PropTypes.array.isRequired,
+  goHerf: PropTypes.func.isRequired,
+  editUserStatus: PropTypes.func.isRequired,
+  delUser: PropTypes.func.isRequired,
+  getPartnersList: PropTypes.func.isRequired,
+  userStatus: PropTypes.array.isRequired,
+  partnersList: PropTypes.array.isRequired
 };
 
 const mapStateToProps = (state) => {
   return {
-    userList: getUserListState(state)
+    userList: getUserListState(state),
+    userStatus: getUserStatusState(state),
+    partnersList: getPartnersListState(state)
   };
 };
 
@@ -74,6 +105,8 @@ export default connect(
   mapStateToProps,
   {
     getUserList,
+    getUserStatus,
+    getPartnersList,
     editUserStatus,
     delUser,
     goHerf

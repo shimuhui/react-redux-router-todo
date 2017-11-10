@@ -10,7 +10,7 @@ class UserList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userListStyle:{
+      userListStyle: {
         height: 504,
       },
       noUser: {
@@ -23,7 +23,7 @@ class UserList extends Component {
         iconWidth: 43,
         iconHeignt: 29,
         tipheight: 14,
-        tipShow: this.props.userList == ''? true : false,
+        tipShow: this.props.userList == [] ? true : false,
         iconSrc: Config.imgUrl + 'tipsIcon.png',
         tipInfoText: '系统刚开张，新建一个用户吧'
       },
@@ -41,15 +41,15 @@ class UserList extends Component {
         iconSrc: Config.imgUrl + 'tipsIcon.png',
         tipInfoText: '暂无用户符合该条件'
       },
-      userListTitle:[
-        '姓名','手机号码','所属公司','角色','创建者','创建时间','最后登陆时间'
+      userListTitle: [
+        '姓名', '手机号码', '所属公司', '角色', '创建者', '创建时间', '最后登陆时间'
       ]
     };
   }
   render() {
     let userTipsShow;
     let userListTitle;
-    if ( this.props.userList.length == 0) {
+    if (this.props.userList.length == 0) {
       userTipsShow = <UserTips {...this.state.noUser}/>;
       userListTitle = '';
     } else {
@@ -63,9 +63,9 @@ class UserList extends Component {
       { userListTitle }
       <ul>
       {
-        this.props.userList?
-          Object.values(this.props.userList).map((v, i) => {
-            if( v.status != 0 ) {
+        this.props.userList
+        ? Object.values(this.props.userList).map((v, i) => {
+            if (v.status != 0) {
               return <UserItem
                 userInfo = {v}
                 key = { i }
@@ -81,8 +81,12 @@ class UserList extends Component {
   }
 }
 
-UserList.PropTypes = {
-  userList: PropTypes.object.isRequired
-}
+UserList.propTypes = {
+  userList: PropTypes.array,
+  length: PropTypes.string,
+  editUserStatus: PropTypes.func,
+  delUser: PropTypes.func,
+  goHerf: PropTypes.func
+};
 
 export default UserList;

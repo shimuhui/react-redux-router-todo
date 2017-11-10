@@ -21,7 +21,9 @@ class BreadCrumb extends Component {
       style = { styles.aBgColor }
     className = 'breadCrumb'>
       <span
-      style = {{background: this.props.borderColor ? this.props.borderColor : '#fff'}}
+      style = {{
+        background: this.props.borderColor ? this.props.borderColor : '#fff'
+      }}
       className = "navName"
       >{this.props.name}</span>
       <span className = { sanJiaoClass }
@@ -35,7 +37,7 @@ class BreadCrumb extends Component {
     let herf = {
       url: this.props.url,
       data: ''
-    }
+    };
     this.props.goHerf(herf);
   }
 }
@@ -45,7 +47,8 @@ BreadCrumb.propTypes = {
   aBgColor: PropTypes.string.isRequired,
   borderColor: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  goHerf: PropTypes.func.isRequired
+  goHerf: PropTypes.func.isRequired,
+  show: PropTypes.bool.isRequired
 };
 
 export default BreadCrumb;

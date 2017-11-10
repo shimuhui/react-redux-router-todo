@@ -44,7 +44,6 @@ class Input extends React.Component {
   _onChange(id) {
     let obj = {};
     obj[id] = this.myinput.value;
-    console.log(obj);
     this.props.getInputValue(obj);
   }
 
