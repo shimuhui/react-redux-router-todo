@@ -30,7 +30,7 @@ class Filter extends Component {
               width = "120px"
               height = "28px"
               selectList = { this.props.selectCompany }
-              value = { this.props.selectCompany.length }
+              value = '-1'
               all = { All }
               />
           </li>
