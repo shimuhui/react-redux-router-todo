@@ -9,7 +9,7 @@ class Actionbtns extends Component {
   }
   render() {
     let btnStatus = {
-      edit: this.props.status == 2 ? 'btn' : 'btn toggleClass',
+      edit: this.props.status == 2 ? 'btn edit' : 'btn edit toggleClass',
       lock: this.props.status == 1 ? '解锁' : '锁定'
     };
     return <ul className = "actionbtns">
@@ -19,13 +19,13 @@ class Actionbtns extends Component {
           <span className = "name">编辑</span>
         </div>
       </li>
-      <li className = "btn">
+      <li className = "btn lock">
         <div onClick = { this.props.editUserStatus }>
           <span className = "icon">🔒</span>
           <span className = "name">{ btnStatus.lock }</span>
         </div>
       </li>
-      <li className = "btn">
+      <li className = "btn delBox">
         <div onClick = { this.props.delUser }>
           <span className = "icon">-</span>
           <span className = "name del">删除</span>

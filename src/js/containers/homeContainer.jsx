@@ -60,7 +60,7 @@ class HomeContainer extends Component {
       url: [''],
       borderColor: [''],
       btnShow: true,
-      btnName: '新建'
+      btnName: '新建用户'
     };
     return (
       <div className = "mcenterContainer">
@@ -70,7 +70,7 @@ class HomeContainer extends Component {
           />
           { filterShow }
           <UserList
-          userList = { userList.slice(0, 15) }
+          userList = { userList }
           editUserStatus = { editUserStatus }
           delUser = { delUser }
           goHerf = { goHerf }

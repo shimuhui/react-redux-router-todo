@@ -5,7 +5,6 @@ import {
   GET_USER_STATUS
 } from '../constants/actionsTypes';
 import $ from 'jquery';
-import { browserHistory } from 'react-router';
 
 const getRoleListAction = (info) => {
   return {
@@ -136,7 +135,8 @@ export function delUser(info) {
 
 export function goHerf(info) {
   return () => {
-    browserHistory.push(Config.rootDir + info.url + '/' + info.data);
+    location.href =
+    Config.rootDir + info.url + '/' + info.data;
   };
 }
 
