@@ -64,17 +64,15 @@ class UserTips extends Component {
 
 UserTips.propTypes = {
   iconSrc: PropTypes.string.isRequired,
-  tipInfo: PropTypes.string.isRequired,
-  width: PropTypes.string.isRequired,
-  top: PropTypes.string.isRequired,
+  width: PropTypes.number.isRequired,
+  top: PropTypes.number.isRequired,
   left: PropTypes.string.isRequired,
-  height: PropTypes.string.isRequired,
+  height: PropTypes.number.isRequired,
   color: PropTypes.string.isRequired,
   fontSize: PropTypes.string.isRequired,
-  tipheight: PropTypes.string.isRequired,
-  marginLeft: PropTypes.string.isRequired,
-  iconWidth: PropTypes.string.isRequired,
-  iconHeignt: PropTypes.string.isRequired,
+  tipheight: PropTypes.number.isRequired,
+  iconWidth: PropTypes.number.isRequired,
+  iconHeignt: PropTypes.number.isRequired,
   tipShow: PropTypes.bool.isRequired,
   tipInfoText: PropTypes.string.isRequired,
 };

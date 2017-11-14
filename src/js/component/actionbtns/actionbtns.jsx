@@ -44,7 +44,7 @@ class Actionbtns extends Component {
 }
 
 Actionbtns.propTypes = {
-  status: PropTypes.string.isRequired,
+  status: PropTypes.number.isRequired,
   editUserStatus: PropTypes.func.isRequired,
   delUser: PropTypes.func.isRequired,
   id: PropTypes.string.isRequired,

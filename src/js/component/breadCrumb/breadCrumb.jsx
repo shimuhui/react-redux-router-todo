@@ -44,8 +44,8 @@ class BreadCrumb extends Component {
 
 BreadCrumb.propTypes = {
   url: PropTypes.string.isRequired,
-  aBgColor: PropTypes.string.isRequired,
-  borderColor: PropTypes.string.isRequired,
+  aBgColor: PropTypes.string,
+  borderColor: PropTypes.string,
   name: PropTypes.string.isRequired,
   goHerf: PropTypes.func.isRequired,
   show: PropTypes.bool.isRequired

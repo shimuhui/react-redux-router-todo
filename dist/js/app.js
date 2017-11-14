@@ -1998,7 +1998,7 @@ module.exports = ReactCurrentOwner;
 
 
 var React = __webpack_require__(2);
-var factory = __webpack_require__(88);
+var factory = __webpack_require__(89);
 
 if (typeof React === 'undefined') {
   throw Error('create-react-class could not find the React object. If you are using script tags, ' + 'make sure that React is being loaded before create-react-class.');
@@ -6589,139 +6589,6 @@ module.exports = canDefineProperty;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.createMemoryHistory = exports.hashHistory = exports.browserHistory = exports.applyRouterMiddleware = exports.formatPattern = exports.useRouterHistory = exports.match = exports.routerShape = exports.locationShape = exports.RouterContext = exports.createRoutes = exports.Route = exports.Redirect = exports.IndexRoute = exports.IndexRedirect = exports.withRouter = exports.IndexLink = exports.Link = exports.Router = undefined;
-
-var _RouteUtils = __webpack_require__(22);
-
-Object.defineProperty(exports, 'createRoutes', {
-  enumerable: true,
-  get: function get() {
-    return _RouteUtils.createRoutes;
-  }
-});
-
-var _PropTypes = __webpack_require__(83);
-
-Object.defineProperty(exports, 'locationShape', {
-  enumerable: true,
-  get: function get() {
-    return _PropTypes.locationShape;
-  }
-});
-Object.defineProperty(exports, 'routerShape', {
-  enumerable: true,
-  get: function get() {
-    return _PropTypes.routerShape;
-  }
-});
-
-var _PatternUtils = __webpack_require__(30);
-
-Object.defineProperty(exports, 'formatPattern', {
-  enumerable: true,
-  get: function get() {
-    return _PatternUtils.formatPattern;
-  }
-});
-
-var _Router2 = __webpack_require__(296);
-
-var _Router3 = _interopRequireDefault(_Router2);
-
-var _Link2 = __webpack_require__(137);
-
-var _Link3 = _interopRequireDefault(_Link2);
-
-var _IndexLink2 = __webpack_require__(292);
-
-var _IndexLink3 = _interopRequireDefault(_IndexLink2);
-
-var _withRouter2 = __webpack_require__(307);
-
-var _withRouter3 = _interopRequireDefault(_withRouter2);
-
-var _IndexRedirect2 = __webpack_require__(293);
-
-var _IndexRedirect3 = _interopRequireDefault(_IndexRedirect2);
-
-var _IndexRoute2 = __webpack_require__(294);
-
-var _IndexRoute3 = _interopRequireDefault(_IndexRoute2);
-
-var _Redirect2 = __webpack_require__(139);
-
-var _Redirect3 = _interopRequireDefault(_Redirect2);
-
-var _Route2 = __webpack_require__(295);
-
-var _Route3 = _interopRequireDefault(_Route2);
-
-var _RouterContext2 = __webpack_require__(84);
-
-var _RouterContext3 = _interopRequireDefault(_RouterContext2);
-
-var _match2 = __webpack_require__(305);
-
-var _match3 = _interopRequireDefault(_match2);
-
-var _useRouterHistory2 = __webpack_require__(144);
-
-var _useRouterHistory3 = _interopRequireDefault(_useRouterHistory2);
-
-var _applyRouterMiddleware2 = __webpack_require__(298);
-
-var _applyRouterMiddleware3 = _interopRequireDefault(_applyRouterMiddleware2);
-
-var _browserHistory2 = __webpack_require__(299);
-
-var _browserHistory3 = _interopRequireDefault(_browserHistory2);
-
-var _hashHistory2 = __webpack_require__(303);
-
-var _hashHistory3 = _interopRequireDefault(_hashHistory2);
-
-var _createMemoryHistory2 = __webpack_require__(141);
-
-var _createMemoryHistory3 = _interopRequireDefault(_createMemoryHistory2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.Router = _Router3.default; /* components */
-
-exports.Link = _Link3.default;
-exports.IndexLink = _IndexLink3.default;
-exports.withRouter = _withRouter3.default;
-
-/* components (configuration) */
-
-exports.IndexRedirect = _IndexRedirect3.default;
-exports.IndexRoute = _IndexRoute3.default;
-exports.Redirect = _Redirect3.default;
-exports.Route = _Route3.default;
-
-/* utils */
-
-exports.RouterContext = _RouterContext3.default;
-exports.match = _match3.default;
-exports.useRouterHistory = _useRouterHistory3.default;
-exports.applyRouterMiddleware = _applyRouterMiddleware3.default;
-
-/* histories */
-
-exports.browserHistory = _browserHistory3.default;
-exports.hashHistory = _hashHistory3.default;
-exports.createMemoryHistory = _createMemoryHistory3.default;
-
-/***/ }),
-/* 55 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 exports.cancelClick = exports.submitClick = exports.alertClick = exports.getUserMessageInput = exports.permissionChecked = exports.getInteractInput = exports.interactCheckedChange = exports.pushMessCountDelete = exports.pushMessCountAdd = exports.pushMessageChange = exports.getPermissionList = exports.roleChange = exports.getRoleList = exports.getUid = exports.getPartnersList = exports.getUserPermission = exports.getUser = undefined;
 
 var _config = __webpack_require__(18);
@@ -7443,7 +7310,7 @@ var cancelClick = exports.cancelClick = function cancelClick() {
 };
 
 /***/ }),
-/* 56 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7469,8 +7336,6 @@ var _actionsTypes = __webpack_require__(35);
 var _jquery = __webpack_require__(105);
 
 var _jquery2 = _interopRequireDefault(_jquery);
-
-var _reactRouter = __webpack_require__(54);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -7603,7 +7468,7 @@ function delUser(info) {
 
 function goHerf(info) {
   return function () {
-    _reactRouter.browserHistory.push(_config2.default.rootDir + info.url + '/' + info.data);
+    location.href = _config2.default.rootDir + info.url + '/' + info.data;
   };
 }
 
@@ -7628,6 +7493,188 @@ function getUserStatus() {
     });
   };
 }
+
+/***/ }),
+/* 56 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(2);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(3);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _button = __webpack_require__(34);
+
+var _button2 = _interopRequireDefault(_button);
+
+var _config = __webpack_require__(18);
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Alert = function (_React$Component) {
+  _inherits(Alert, _React$Component);
+
+  function Alert(props) {
+    _classCallCheck(this, Alert);
+
+    return _possibleConstructorReturn(this, (Alert.__proto__ || Object.getPrototypeOf(Alert)).call(this, props));
+  }
+
+  _createClass(Alert, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+
+      this.style = {
+        alertMain: {
+          position: 'fixed',
+          top: '315px',
+          left: '50%',
+          marginLeft: '-150px',
+          width: '300px',
+          height: '170px',
+          backgroundColor: '#fff',
+          boxShadow: '0 2px 10px 0 rgba(0,0,0,0.20)',
+          borderRadius: '2px'
+        },
+        alert: {
+          position: 'absolute',
+          top: '0',
+          left: '0',
+          width: '100%',
+          height: '100%'
+        },
+        alertBg: {
+          position: 'absolute',
+          top: '0',
+          left: '0',
+          width: '100%',
+          height: '100%',
+          backgroundColor: 'rgba(0,0,0,0.24)'
+        },
+        title: {
+          position: 'relative',
+          paddingLeft: '20px',
+          boxSizing: 'border-box',
+          width: '100%',
+          height: '40px',
+          lineHeight: '40px',
+          background: '#f5f5f5',
+          color: '#727272',
+          fontWeight: 'normal'
+        },
+        titleIcon: {
+          display: 'block',
+          position: 'absolute',
+          top: '15px',
+          right: '14px',
+          width: '10px',
+          height: '10px',
+          backgroundImage: 'url(' + _config2.default.imgUrl + 'alertClose.png)',
+          backgroundSize: 'cover',
+          cursor: 'pointer'
+        },
+        text: {
+          margin: '30px 0',
+          textAlign: 'center',
+          lineHeight: '20px',
+          color: '#323232'
+        },
+        textIcon: {
+          display: 'inline-block',
+          verticalAlign: 'top',
+          marginRight: '10px',
+          width: '20px',
+          height: '20px',
+          backgroundImage: 'url(' + _config2.default.imgUrl + 'alertIcon.png)',
+          backgroundSize: 'cover'
+        },
+        button: {
+          marginLeft: '111px'
+        }
+      };
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          alertText = _props.alertText,
+          closeClick = _props.closeClick;
+
+
+      return _react2.default.createElement(
+        'div',
+        { style: this.style.alert },
+        _react2.default.createElement('div', {
+          onClick: closeClick,
+          style: this.style.alertBg }),
+        _react2.default.createElement(
+          'div',
+          {
+            style: this.style.alertMain },
+          _react2.default.createElement(
+            'h4',
+            { style: this.style.title },
+            '\u63D0\u793A',
+            _react2.default.createElement('em', {
+              style: this.style.titleIcon,
+              onClick: closeClick })
+          ),
+          _react2.default.createElement(
+            'div',
+            { style: this.style.text },
+            _react2.default.createElement('em', { style: this.style.textIcon }),
+            alertText
+          ),
+          _react2.default.createElement(
+            'div',
+            { style: this.style.button },
+            _react2.default.createElement(_button2.default, {
+              name: '\u77E5\u9053\u4E86',
+              width: '76px',
+              height: '30px',
+              borderColor: '#00b03d',
+              backgroundColor: '#2ec75d',
+              color: '#ffffff',
+              buttonClick: closeClick })
+          )
+        )
+      );
+    }
+  }]);
+
+  return Alert;
+}(_react2.default.Component);
+
+Alert.propTypes = {
+  alertText: _propTypes2.default.string.isRequired,
+  closeClick: _propTypes2.default.func
+};
+
+Alert.defaultProps = {
+  closeClick: function closeClick() {}
+};
+
+exports.default = Alert;
 
 /***/ }),
 /* 57 */
@@ -7703,6 +7750,7 @@ var NavBox = function (_Component) {
           { className: 'breadCrumbBox' },
           defaultStyle.navTitles.map(function (v, i) {
             return _react2.default.createElement(_breadCrumb2.default, {
+              key: i,
               url: defaultStyle.url[i],
               goHerf: _this2.props.goHerf,
               name: v,
@@ -10593,6 +10641,139 @@ exports.routerMiddleware = _middleware2['default'];
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.createMemoryHistory = exports.hashHistory = exports.browserHistory = exports.applyRouterMiddleware = exports.formatPattern = exports.useRouterHistory = exports.match = exports.routerShape = exports.locationShape = exports.RouterContext = exports.createRoutes = exports.Route = exports.Redirect = exports.IndexRoute = exports.IndexRedirect = exports.withRouter = exports.IndexLink = exports.Link = exports.Router = undefined;
+
+var _RouteUtils = __webpack_require__(22);
+
+Object.defineProperty(exports, 'createRoutes', {
+  enumerable: true,
+  get: function get() {
+    return _RouteUtils.createRoutes;
+  }
+});
+
+var _PropTypes = __webpack_require__(83);
+
+Object.defineProperty(exports, 'locationShape', {
+  enumerable: true,
+  get: function get() {
+    return _PropTypes.locationShape;
+  }
+});
+Object.defineProperty(exports, 'routerShape', {
+  enumerable: true,
+  get: function get() {
+    return _PropTypes.routerShape;
+  }
+});
+
+var _PatternUtils = __webpack_require__(30);
+
+Object.defineProperty(exports, 'formatPattern', {
+  enumerable: true,
+  get: function get() {
+    return _PatternUtils.formatPattern;
+  }
+});
+
+var _Router2 = __webpack_require__(296);
+
+var _Router3 = _interopRequireDefault(_Router2);
+
+var _Link2 = __webpack_require__(137);
+
+var _Link3 = _interopRequireDefault(_Link2);
+
+var _IndexLink2 = __webpack_require__(292);
+
+var _IndexLink3 = _interopRequireDefault(_IndexLink2);
+
+var _withRouter2 = __webpack_require__(307);
+
+var _withRouter3 = _interopRequireDefault(_withRouter2);
+
+var _IndexRedirect2 = __webpack_require__(293);
+
+var _IndexRedirect3 = _interopRequireDefault(_IndexRedirect2);
+
+var _IndexRoute2 = __webpack_require__(294);
+
+var _IndexRoute3 = _interopRequireDefault(_IndexRoute2);
+
+var _Redirect2 = __webpack_require__(139);
+
+var _Redirect3 = _interopRequireDefault(_Redirect2);
+
+var _Route2 = __webpack_require__(295);
+
+var _Route3 = _interopRequireDefault(_Route2);
+
+var _RouterContext2 = __webpack_require__(84);
+
+var _RouterContext3 = _interopRequireDefault(_RouterContext2);
+
+var _match2 = __webpack_require__(305);
+
+var _match3 = _interopRequireDefault(_match2);
+
+var _useRouterHistory2 = __webpack_require__(144);
+
+var _useRouterHistory3 = _interopRequireDefault(_useRouterHistory2);
+
+var _applyRouterMiddleware2 = __webpack_require__(298);
+
+var _applyRouterMiddleware3 = _interopRequireDefault(_applyRouterMiddleware2);
+
+var _browserHistory2 = __webpack_require__(299);
+
+var _browserHistory3 = _interopRequireDefault(_browserHistory2);
+
+var _hashHistory2 = __webpack_require__(303);
+
+var _hashHistory3 = _interopRequireDefault(_hashHistory2);
+
+var _createMemoryHistory2 = __webpack_require__(141);
+
+var _createMemoryHistory3 = _interopRequireDefault(_createMemoryHistory2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.Router = _Router3.default; /* components */
+
+exports.Link = _Link3.default;
+exports.IndexLink = _IndexLink3.default;
+exports.withRouter = _withRouter3.default;
+
+/* components (configuration) */
+
+exports.IndexRedirect = _IndexRedirect3.default;
+exports.IndexRoute = _IndexRoute3.default;
+exports.Redirect = _Redirect3.default;
+exports.Route = _Route3.default;
+
+/* utils */
+
+exports.RouterContext = _RouterContext3.default;
+exports.match = _match3.default;
+exports.useRouterHistory = _useRouterHistory3.default;
+exports.applyRouterMiddleware = _applyRouterMiddleware3.default;
+
+/* histories */
+
+exports.browserHistory = _browserHistory3.default;
+exports.hashHistory = _hashHistory3.default;
+exports.createMemoryHistory = _createMemoryHistory3.default;
+
+/***/ }),
+/* 89 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -11326,188 +11507,6 @@ function factory(ReactComponent, isValidElement, ReactNoopUpdateQueue) {
 
 module.exports = factory;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 89 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(2);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = __webpack_require__(3);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _button = __webpack_require__(34);
-
-var _button2 = _interopRequireDefault(_button);
-
-var _config = __webpack_require__(18);
-
-var _config2 = _interopRequireDefault(_config);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Alert = function (_React$Component) {
-  _inherits(Alert, _React$Component);
-
-  function Alert(props) {
-    _classCallCheck(this, Alert);
-
-    return _possibleConstructorReturn(this, (Alert.__proto__ || Object.getPrototypeOf(Alert)).call(this, props));
-  }
-
-  _createClass(Alert, [{
-    key: 'componentWillMount',
-    value: function componentWillMount() {
-
-      this.style = {
-        alertMain: {
-          position: 'fixed',
-          top: '315px',
-          left: '50%',
-          marginLeft: '-150px',
-          width: '300px',
-          height: '170px',
-          backgroundColor: '#fff',
-          boxShadow: '0 2px 10px 0 rgba(0,0,0,0.20)',
-          borderRadius: '2px'
-        },
-        alert: {
-          position: 'absolute',
-          top: '0',
-          left: '0',
-          width: '100%',
-          height: '100%'
-        },
-        alertBg: {
-          position: 'absolute',
-          top: '0',
-          left: '0',
-          width: '100%',
-          height: '100%',
-          backgroundColor: 'rgba(0,0,0,0.24)'
-        },
-        title: {
-          position: 'relative',
-          paddingLeft: '20px',
-          boxSizing: 'border-box',
-          width: '100%',
-          height: '40px',
-          lineHeight: '40px',
-          background: '#f5f5f5',
-          color: '#727272',
-          fontWeight: 'normal'
-        },
-        titleIcon: {
-          display: 'block',
-          position: 'absolute',
-          top: '15px',
-          right: '14px',
-          width: '10px',
-          height: '10px',
-          backgroundImage: 'url(' + _config2.default.imgUrl + 'alertClose.png)',
-          backgroundSize: 'cover',
-          cursor: 'pointer'
-        },
-        text: {
-          margin: '30px 0',
-          textAlign: 'center',
-          lineHeight: '20px',
-          color: '#323232'
-        },
-        textIcon: {
-          display: 'inline-block',
-          verticalAlign: 'top',
-          marginRight: '10px',
-          width: '20px',
-          height: '20px',
-          backgroundImage: 'url(' + _config2.default.imgUrl + 'alertIcon.png)',
-          backgroundSize: 'cover'
-        },
-        button: {
-          marginLeft: '111px'
-        }
-      };
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var _props = this.props,
-          alertText = _props.alertText,
-          closeClick = _props.closeClick;
-
-
-      return _react2.default.createElement(
-        'div',
-        { style: this.style.alert },
-        _react2.default.createElement('div', {
-          onClick: closeClick,
-          style: this.style.alertBg }),
-        _react2.default.createElement(
-          'div',
-          {
-            style: this.style.alertMain },
-          _react2.default.createElement(
-            'h4',
-            { style: this.style.title },
-            '\u63D0\u793A',
-            _react2.default.createElement('em', {
-              style: this.style.titleIcon,
-              onClick: closeClick })
-          ),
-          _react2.default.createElement(
-            'div',
-            { style: this.style.text },
-            _react2.default.createElement('em', { style: this.style.textIcon }),
-            alertText
-          ),
-          _react2.default.createElement(
-            'div',
-            { style: this.style.button },
-            _react2.default.createElement(_button2.default, {
-              name: '\u77E5\u9053\u4E86',
-              width: '76px',
-              height: '30px',
-              borderColor: '#00b03d',
-              backgroundColor: '#2ec75d',
-              color: '#ffffff',
-              buttonClick: closeClick })
-          )
-        )
-      );
-    }
-  }]);
-
-  return Alert;
-}(_react2.default.Component);
-
-Alert.propTypes = {
-  alertText: _propTypes2.default.string.isRequired,
-  closeClick: _propTypes2.default.func
-};
-
-Alert.defaultProps = {
-  closeClick: function closeClick() {}
-};
-
-exports.default = Alert;
 
 /***/ }),
 /* 90 */
@@ -28200,7 +28199,7 @@ var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouter = __webpack_require__(54);
+var _reactRouter = __webpack_require__(88);
 
 var _config = __webpack_require__(18);
 
@@ -28623,7 +28622,7 @@ var _reactDom = __webpack_require__(156);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _reactRouter = __webpack_require__(54);
+var _reactRouter = __webpack_require__(88);
 
 var _reactRedux = __webpack_require__(41);
 
@@ -28724,7 +28723,7 @@ var Actionbtns = function (_Component) {
     key: 'render',
     value: function render() {
       var btnStatus = {
-        edit: this.props.status == 2 ? 'btn' : 'btn toggleClass',
+        edit: this.props.status == 2 ? 'btn edit' : 'btn edit toggleClass',
         lock: this.props.status == 1 ? '解锁' : '锁定'
       };
       return _react2.default.createElement(
@@ -28750,7 +28749,7 @@ var Actionbtns = function (_Component) {
         ),
         _react2.default.createElement(
           'li',
-          { className: 'btn' },
+          { className: 'btn lock' },
           _react2.default.createElement(
             'div',
             { onClick: this.props.editUserStatus },
@@ -28768,7 +28767,7 @@ var Actionbtns = function (_Component) {
         ),
         _react2.default.createElement(
           'li',
-          { className: 'btn' },
+          { className: 'btn delBox' },
           _react2.default.createElement(
             'div',
             { onClick: this.props.delUser },
@@ -28801,7 +28800,7 @@ var Actionbtns = function (_Component) {
 }(_react.Component);
 
 Actionbtns.propTypes = {
-  status: _propTypes2.default.string.isRequired,
+  status: _propTypes2.default.number.isRequired,
   editUserStatus: _propTypes2.default.func.isRequired,
   delUser: _propTypes2.default.func.isRequired,
   id: _propTypes2.default.string.isRequired,
@@ -28901,8 +28900,8 @@ var BreadCrumb = function (_Component) {
 
 BreadCrumb.propTypes = {
   url: _propTypes2.default.string.isRequired,
-  aBgColor: _propTypes2.default.string.isRequired,
-  borderColor: _propTypes2.default.string.isRequired,
+  aBgColor: _propTypes2.default.string,
+  borderColor: _propTypes2.default.string,
   name: _propTypes2.default.string.isRequired,
   goHerf: _propTypes2.default.func.isRequired,
   show: _propTypes2.default.bool.isRequired
@@ -29138,8 +29137,8 @@ var Filter = function (_Component) {
                 { className: 'selectName' },
                 '\u7528\u6237'
               ),
-              _react2.default.createElement(_input2.default, { width: '190',
-                height: '28',
+              _react2.default.createElement(_input2.default, { width: '190px',
+                height: '28px',
                 borderColor: '#e0e0e0',
                 paddingLeft: '10px',
                 paddingRight: '0px' })
@@ -29153,7 +29152,7 @@ var Filter = function (_Component) {
               height: '28px',
               borderColor: '#00b03d',
               backgroundColor: '#2ec75d',
-              fontSize: '14',
+              fontSize: '14px',
               color: '#fff',
               name: '\u5E94\u7528'
             }),
@@ -29162,7 +29161,7 @@ var Filter = function (_Component) {
               height: '28px',
               borderColor: '#e24b33',
               backgroundColor: '#f25b43',
-              fontSize: '14',
+              fontSize: '14px',
               color: '#fff',
               name: '\u5220\u9664'
             })
@@ -29652,7 +29651,10 @@ var UserItem = function (_Component) {
           _react2.default.createElement(
             'li',
             {
-              className: 'infoText' },
+              className: 'infoText',
+              ref: 'roleName',
+              id: this.props.userInfo.roleName
+            },
             this.props.userInfo.roleName
           ),
           _react2.default.createElement(
@@ -29676,7 +29678,10 @@ var UserItem = function (_Component) {
         ),
         _react2.default.createElement(
           'div',
-          { className: 'userItemBtn' },
+          { className: 'userItemBtn',
+            id: this.props.num,
+            ref: 'btn'
+          },
           _react2.default.createElement(_actionbtns2.default, { status: this.props.userInfo.status,
             editUserStatus: this._editUserStatus,
             delUser: this._delUser,
@@ -29698,7 +29703,11 @@ var UserItem = function (_Component) {
   }, {
     key: '_delUser',
     value: function _delUser() {
-      this.props.delUser(this.refs.item.id);
+      if (this.refs.roleName.id == '测试人员') {
+        this.props.alertBoxShow();
+      } else {
+        this.props.delUser(this.refs.item.id, this.refs.btn.id);
+      }
     }
   }]);
 
@@ -29706,12 +29715,12 @@ var UserItem = function (_Component) {
 }(_react.Component);
 
 UserItem.propTypes = {
-  userInfo: _propTypes2.default.array.isRequired,
+  userInfo: _propTypes2.default.object.isRequired,
   editUserStatus: _propTypes2.default.func.isRequired,
   delUser: _propTypes2.default.func.isRequired,
-  userIdEncry: _propTypes2.default.string.isRequired,
-  status: _propTypes2.default.string.isRequired,
-  goHerf: _propTypes2.default.func.isRequired
+  goHerf: _propTypes2.default.func.isRequired,
+  num: _propTypes2.default.number.isRequired,
+  alertBoxShow: _propTypes2.default.func.isRequired
 };
 
 exports.default = UserItem;
@@ -29755,6 +29764,10 @@ var _config = __webpack_require__(18);
 
 var _config2 = _interopRequireDefault(_config);
 
+var _alert = __webpack_require__(56);
+
+var _alert2 = _interopRequireDefault(_alert);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -29771,6 +29784,11 @@ var UserList = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (UserList.__proto__ || Object.getPrototypeOf(UserList)).call(this, props));
 
+    _this._delTipsBtnCancle = _this._delTipsBtnCancle.bind(_this);
+    _this._delTipsBtnOk = _this._delTipsBtnOk.bind(_this);
+    _this._delUser = _this._delUser.bind(_this);
+    _this.alertBoxClick = _this.alertBoxClick.bind(_this);
+    _this.alertBoxShow = _this.alertBoxShow.bind(_this);
     _this.state = {
       userListStyle: {
         minHeight: 504
@@ -29803,7 +29821,12 @@ var UserList = function (_Component) {
         iconSrc: _config2.default.imgUrl + 'tipsIcon.png',
         tipInfoText: '暂无用户符合该条件'
       },
-      userListTitle: ['姓名', '手机号码', '所属公司', '角色', '创建者', '创建时间', '最后登陆时间']
+      userListTitle: ['姓名', '手机号码', '所属公司', '角色', '创建者', '创建时间', '最后登录时间'],
+      delTipsToggleClass: {
+        flag: false,
+        active: 'delTipsToggleClass'
+      },
+      id: ''
     };
     return _this;
   }
@@ -29815,6 +29838,7 @@ var UserList = function (_Component) {
 
       var userTipsShow = void 0;
       var userListTitle = void 0;
+      var number = -1;
       if (this.props.userList.length == 0) {
         userTipsShow = _react2.default.createElement(_userTips2.default, this.state.noUser);
         userListTitle = '';
@@ -29827,24 +29851,94 @@ var UserList = function (_Component) {
         { className: 'userList',
           style: this.state.userListStyle
         },
+        _react2.default.createElement(
+          'div',
+          { className: 'alertBox', ref: 'alertBox' },
+          _react2.default.createElement(_alert2.default, {
+            alertText: '\u6D4B\u8BD5\u4EBA\u5458\u4E0D\u80FD\u5220\u9664',
+            closeClick: this.alertBoxClick
+          })
+        ),
         userTipsShow,
         userListTitle,
         _react2.default.createElement(
           'ul',
           null,
           this.props.userList ? Object.values(this.props.userList).map(function (v, i) {
+
             if (v.status != 0) {
+              number++;
               return _react2.default.createElement(_userItem2.default, {
                 userInfo: v,
                 key: i,
+                num: number,
                 editUserStatus: _this2.props.editUserStatus,
-                delUser: _this2.props.delUser,
-                goHerf: _this2.props.goHerf
+                delUser: _this2._delUser,
+                goHerf: _this2.props.goHerf,
+                alertBoxShow: _this2.alertBoxShow
               });
             }
-          }) : ''
+          }) : '',
+          _react2.default.createElement(
+            'li',
+            { className: 'delTips', ref: 'delTips' },
+            _react2.default.createElement(
+              'div',
+              { className: 'delTips_Title' },
+              '\u786E\u5B9A\u5220\u9664\u6B64\u7528\u6237\uFF1F'
+            ),
+            _react2.default.createElement(
+              'div',
+              null,
+              _react2.default.createElement(
+                'span',
+                { className: 'delTips_Btn delTips_Cancel',
+                  onClick: this._delTipsBtnCancle
+                },
+                '\u53D6\u6D88'
+              ),
+              _react2.default.createElement(
+                'span',
+                { className: 'delTips_Btn delTips_Ok',
+                  onClick: this._delTipsBtnOk
+                },
+                '\u786E\u5B9A'
+              )
+            )
+          )
         )
       );
+    }
+  }, {
+    key: '_delTipsBtnCancle',
+    value: function _delTipsBtnCancle() {
+      this.refs.delTips.style.display = 'none';
+    }
+  }, {
+    key: '_delUser',
+    value: function _delUser(id, key) {
+      this.refs.delTips.style.top = 50 * key - 38 + 'px';
+      this.refs.delTips.style.display = 'block';
+      this.setState({
+        id: id
+      });
+    }
+  }, {
+    key: '_delTipsBtnOk',
+    value: function _delTipsBtnOk() {
+      var id = this.state.id;
+      this.props.delUser(id);
+      this.refs.delTips.style.display = 'none';
+    }
+  }, {
+    key: 'alertBoxClick',
+    value: function alertBoxClick() {
+      this.refs.alertBox.style.display = 'none';
+    }
+  }, {
+    key: 'alertBoxShow',
+    value: function alertBoxShow() {
+      this.refs.alertBox.style.display = 'block';
     }
   }]);
 
@@ -30039,17 +30133,15 @@ var UserTips = function (_Component) {
 
 UserTips.propTypes = {
   iconSrc: _propTypes2.default.string.isRequired,
-  tipInfo: _propTypes2.default.string.isRequired,
-  width: _propTypes2.default.string.isRequired,
-  top: _propTypes2.default.string.isRequired,
+  width: _propTypes2.default.number.isRequired,
+  top: _propTypes2.default.number.isRequired,
   left: _propTypes2.default.string.isRequired,
-  height: _propTypes2.default.string.isRequired,
+  height: _propTypes2.default.number.isRequired,
   color: _propTypes2.default.string.isRequired,
   fontSize: _propTypes2.default.string.isRequired,
-  tipheight: _propTypes2.default.string.isRequired,
-  marginLeft: _propTypes2.default.string.isRequired,
-  iconWidth: _propTypes2.default.string.isRequired,
-  iconHeignt: _propTypes2.default.string.isRequired,
+  tipheight: _propTypes2.default.number.isRequired,
+  iconWidth: _propTypes2.default.number.isRequired,
+  iconHeignt: _propTypes2.default.number.isRequired,
   tipShow: _propTypes2.default.bool.isRequired,
   tipInfoText: _propTypes2.default.string.isRequired
 };
@@ -30176,7 +30268,7 @@ var _button = __webpack_require__(34);
 
 var _button2 = _interopRequireDefault(_button);
 
-var _alert = __webpack_require__(89);
+var _alert = __webpack_require__(56);
 
 var _alert2 = _interopRequireDefault(_alert);
 
@@ -30184,9 +30276,9 @@ var _navBox = __webpack_require__(57);
 
 var _navBox2 = _interopRequireDefault(_navBox);
 
-var _addUser = __webpack_require__(55);
+var _addUser = __webpack_require__(54);
 
-var _index = __webpack_require__(56);
+var _index = __webpack_require__(55);
 
 var _addUser2 = __webpack_require__(43);
 
@@ -30587,7 +30679,7 @@ var _button = __webpack_require__(34);
 
 var _button2 = _interopRequireDefault(_button);
 
-var _alert = __webpack_require__(89);
+var _alert = __webpack_require__(56);
 
 var _alert2 = _interopRequireDefault(_alert);
 
@@ -30595,9 +30687,9 @@ var _navBox = __webpack_require__(57);
 
 var _navBox2 = _interopRequireDefault(_navBox);
 
-var _addUser = __webpack_require__(55);
+var _addUser = __webpack_require__(54);
 
-var _index = __webpack_require__(56);
+var _index = __webpack_require__(55);
 
 var _addUser2 = __webpack_require__(43);
 
@@ -30983,11 +31075,11 @@ var _filter2 = _interopRequireDefault(_filter);
 
 var _home = __webpack_require__(98);
 
-var _addUser = __webpack_require__(55);
+var _addUser = __webpack_require__(54);
 
 var _addUser2 = __webpack_require__(43);
 
-var _index = __webpack_require__(56);
+var _index = __webpack_require__(55);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -31040,7 +31132,7 @@ var HomeContainer = function (_Component) {
         url: [''],
         borderColor: [''],
         btnShow: true,
-        btnName: '新建'
+        btnName: '新建用户'
       };
       return _react2.default.createElement(
         'div',
@@ -31053,7 +31145,7 @@ var HomeContainer = function (_Component) {
           })),
           filterShow,
           _react2.default.createElement(_userList2.default, {
-            userList: userList.slice(0, 15),
+            userList: userList,
             editUserStatus: editUserStatus,
             delUser: delUser,
             goHerf: goHerf
@@ -46421,7 +46513,7 @@ var _require2 = __webpack_require__(25),
     isValidElement = _require2.isValidElement;
 
 var ReactNoopUpdateQueue = __webpack_require__(148);
-var factory = __webpack_require__(88);
+var factory = __webpack_require__(89);
 
 module.exports = factory(Component, isValidElement, ReactNoopUpdateQueue);
 
@@ -47152,7 +47244,7 @@ exports = module.exports = __webpack_require__(11)(undefined);
 
 
 // module
-exports.push([module.i, ".actionbtns {\n  width: 150px;\n  height: 51px;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-pack: distribute;\n  justify-content: space-around;\n  -ms-flex-align: center;\n  align-items: center; }\n  .actionbtns .btn {\n    width: 41px;\n    height: 14px;\n    cursor: pointer; }\n    .actionbtns .btn .icon {\n      width: 12px;\n      height: 14px;\n      line-height: 18px;\n      margin-right: 5px;\n      display: inline-block;\n      overflow: hidden; }\n    .actionbtns .btn .name {\n      width: 24px;\n      height: 14px;\n      font-size: 12px;\n      line-height: 14px;\n      color: #14ae43; }\n    .actionbtns .btn .del {\n      color: #d63221; }\n  .actionbtns .toggleClass {\n    display: none; }\n", ""]);
+exports.push([module.i, ".actionbtns {\n  width: 150px;\n  height: 51px;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-pack: distribute;\n  justify-content: space-around;\n  -ms-flex-align: center;\n  align-items: center;\n  transition: all 0.3s;\n  color: #646464; }\n  .actionbtns .btn {\n    width: 41px;\n    height: 14px;\n    cursor: pointer; }\n    .actionbtns .btn .icon {\n      width: 12px;\n      height: 14px;\n      line-height: 18px;\n      margin-right: 5px;\n      display: inline-block;\n      overflow: hidden; }\n    .actionbtns .btn .name {\n      width: 24px;\n      height: 14px;\n      font-size: 12px;\n      line-height: 14px; }\n  .actionbtns .toggleClass {\n    display: none; }\n  .actionbtns .edit, .actionbtns .lock, .actionbtns .delBox {\n    transition: all 0.3s; }\n  .actionbtns .edit:hover {\n    color: #14ae43; }\n  .actionbtns .lock:hover {\n    color: #14ae43; }\n  .actionbtns .delBox:hover {\n    color: #d63221; }\n", ""]);
 
 // exports
 
@@ -47208,7 +47300,7 @@ exports = module.exports = __webpack_require__(11)(undefined);
 
 
 // module
-exports.push([module.i, ".navFnBtn {\n  width: 60px;\n  height: 17px;\n  font-size: 12px;\n  color: #2ec75d;\n  font-family: \"PingFangSC-Regular\";\n  line-height: 17px;\n  text-align: center; }\n  .navFnBtn .icon {\n    float: left;\n    width: 8px;\n    height: 7px;\n    box-sizing: border-box; }\n  .navFnBtn .name {\n    float: right;\n    width: 48px;\n    height: 17px; }\n", ""]);
+exports.push([module.i, ".navFnBtn {\n  width: 60px;\n  height: 17px;\n  font-size: 12px;\n  color: #323232;\n  font-family: \"PingFangSC-Regular\";\n  line-height: 17px;\n  text-align: center;\n  transition: all 0.3s; }\n  .navFnBtn:hover {\n    color: #2ec75d; }\n  .navFnBtn .icon {\n    float: left;\n    width: 8px;\n    height: 7px;\n    box-sizing: border-box; }\n  .navFnBtn .name {\n    float: right;\n    width: 48px;\n    height: 17px; }\n", ""]);
 
 // exports
 
@@ -47250,7 +47342,7 @@ exports = module.exports = __webpack_require__(11)(undefined);
 
 
 // module
-exports.push([module.i, ".userList {\n  width: 820px;\n  background: #fff;\n  box-shadow: 0 1px 2px 0 #629ec8;\n  border-radius: 2px;\n  position: relative;\n  padding: 15px;\n  box-sizing: border-box; }\n", ""]);
+exports.push([module.i, ".userList {\n  width: 820px;\n  background: #fff;\n  box-shadow: 0 1px 2px 0 #629ec8;\n  border-radius: 2px;\n  position: relative;\n  padding: 15px;\n  box-sizing: border-box;\n  position: relative; }\n  .userList .alertBox {\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    margin-left: -150px;\n    display: none; }\n  .userList .delTips {\n    position: absolute;\n    width: 216px;\n    height: 115px;\n    box-sizing: border-box;\n    padding: 10px 0 12px 0;\n    background-image: url(" + __webpack_require__(354) + ");\n    background-repeat: no-repeat;\n    background-position: center center;\n    border-radius: 2px;\n    top: -38px;\n    left: 658px;\n    display: none; }\n    .userList .delTips .delTips_Btn {\n      width: 60px;\n      height: 28px;\n      border-radius: 2px;\n      text-align: center;\n      line-height: 28px;\n      font-size: 12px;\n      display: inline-block; }\n      .userList .delTips .delTips_Btn:hover {\n        cursor: pointer; }\n    .userList .delTips .delTips_Title {\n      color: #333;\n      font-size: 12px;\n      text-align: center;\n      width: 202px;\n      height: 41px;\n      line-height: 41px;\n      margin-left: 6px;\n      border-bottom: 1px solid #eee;\n      margin-bottom: 10px; }\n    .userList .delTips .delTips_Cancel {\n      border: 1px solid #dfdfdf;\n      color: #333;\n      box-shadow: rgba(142, 142, 142, 0.1) 1px 1px 1px;\n      margin: 0 10px 0 44px;\n      background: #fafafa; }\n    .userList .delTips .delTips_Ok {\n      border: 1px solid #2ec75d;\n      box-shadow: rgba(2, 104, 34, 0.2) 1px 1px 1px;\n      color: #fff;\n      background: #2ec75d; }\n  .userList .delTipsToggleClass {\n    display: block; }\n", ""]);
 
 // exports
 
@@ -47292,7 +47384,7 @@ exports = module.exports = __webpack_require__(11)(undefined);
 
 
 // module
-exports.push([module.i, ".mcenterContainer {\n  width: 980px;\n  height: 690px;\n  background: #94bddb;\n  margin: 0 auto;\n  paddingTop: 20px;\n  box-sizing: border-box; }\n  .mcenterContainer .leftNavBox {\n    width: 150px;\n    height: auto;\n    float: left; }\n  .mcenterContainer .rightBox {\n    width: 820px;\n    height: auto;\n    float: left;\n    position: absolute; }\n", ""]);
+exports.push([module.i, ".mcenterContainer {\n  width: 980px;\n  height: auto;\n  background: #94bddb;\n  margin: 0 auto;\n  paddingTop: 20px;\n  box-sizing: border-box; }\n  .mcenterContainer .rightBox {\n    width: 820px;\n    height: auto; }\n", ""]);
 
 // exports
 
@@ -47622,6 +47714,12 @@ if(false) {
 	// When the module is disposed, remove the <style> tags
 	module.hot.dispose(function() { update(); });
 }
+
+/***/ }),
+/* 354 */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANoAAABzCAYAAAD+Dhz9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDY3IDc5LjE1Nzc0NywgMjAxNS8wMy8zMC0yMzo0MDo0MiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QjA0Q0U4NkFGNTI3MTFFNjgzODM5RUUwQjhCM0YxMDUiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MTVBNzk2MzBGNTMwMTFFNjgzODM5RUUwQjhCM0YxMDUiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpCMDRDRTg2OEY1MjcxMUU2ODM4MzlFRTBCOEIzRjEwNSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpCMDRDRTg2OUY1MjcxMUU2ODM4MzlFRTBCOEIzRjEwNSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Po7nkFcAAAT4SURBVHja7NpPiJRlHMDx9313lDy4StChe6LQelAPKnkw8g8dugSdPFR4Sgw8d+jgoUsUdQkSoxC6dAmik5StQuW/YIU0NOga1MXdjBXWfd9mttntndfned933NlN3c8HXmZmnR3hnf3O83ve3XR9kiYttX4irCFFmyd1howrFSFiGvh62ia6Totw2twXHI9zYOmQ0RVtQgvFlFbut4kOHscVraiEVVTuJ5X7wdDSSGB1j4XGWgmtfFsEYksCEd4XWmg/Vj2ySHiwFmKrhpYHxsSi0lBRNzqG4soCsVnRWGsrWjmytBRbXhNccHQMRTbWEJy9Gmthb1ZexdLS7Xy/h2hsnRZj40JkBw4d2vDJZ58eGd+0aX+WZZuXXqkoxMVjL03TpWjyPL89Mz09efS11z//5uzZ2f6X55PwVceFINP+L6wXn1BerRaPsTeOH9/47vvvfbVu3bpdTjn8a25u7qcTx9986fSpU3f6oeWlozxODoSWhiLrHX9O335nfHz8mFMLg2ZmZj56atPmt/qhhWIrmkIb6x+d2fl717vj4tNOKwzqjpG/bxjrPNu9ey8Q21JoWcPFkIVDZBDWbyONHP89L7b3SwavLAI110pigYVCi/21R+Y8Qv3CljT8xVRodKzeWtGg3YoWjKxptRIZPFhstaNjaGVLxAatIqvtJRMWrHx4rirCKoTniiKsAqGB0EBogNBAaCA0QGggNEBoIDQQGiA0EBoIDRAaCA0QGggNhAYIDYQGCA2EBkIDhAZCA6EBQgOhAUIDoYHQAKGB0AChgdBAaIDQQGggNEBoIDRAaCA0EBogNBAaIDQQGggNEBoIDYQGCA2EBggNhAZCA4QGQgOEBkIDoQFCA6GB0AChgdAAoYHQQGjACEIr+gcwegt9ZbF/qDwG6mOK9dM4OlrpYMiVazl7NLHBMhvJIlVWD6B5NYt2kzXMmUKD4UO7r6msZhns3ea9oyiKv5xLCMRSFH8vdlJpp3F0rBaa371797xTCvfrtvFdKbIiFlvWYhnMr1y+fLJb7rTTCgOr2XSvjUBotStaaDO3sCQe3P/8zclz5w7Ozs5+3X3xO04xazywO70Wek302qiMjsHg0vVJunQ/cGQ1R/l5SemWB5eG3ovrt26++syWLSeTdr+Omf/11q23J7ZuOxN5013cGv5CRxJagCJHMLZqaEkgtDQQVyayFY0sqZ7razeuv7x127YP0jTt1HzSzv1y48aJHRPbvyz9QIQiE9vyYssD0RV1e7VYaLHgQofQRhta9MPu6rWpwxPbt3/cje2JQGSz16amju7euetcwxsvtNGsakUkvOCHWjm0pthCcaWRHxRGNz6Wp4r0x6tX9u3YufNMN7aNi9+Q5/n0pYsXj+x/bt+lyhufGxtHFlkSOJdFw3ge3KPVxZZEVjChrc4+bWBsP//D9zt279nzRTe2J7uR/XFhcvKVwy8c+Dkw0tifjT600AqXNI3nodBiAYnrf7wgUh3fv71wfuuevXs/7EZ27MWDh35rGGWEtjrRRUfzWGihiJoeszKhJZXQQmN70xgjtJWJrc3jBZ2WL5i2fEHxje6NrIZWJPELULF9Q5L4e9VRRvXAz+uM+D9k9G90U2TJEPsGVia0ZFShJYJ8aKJrE1oitIdLxyl4JFaz6vheREbH1nsGhEZ4vzZsQAITGssYyVNxPXr+EWAAVL7lntgeeYsAAAAASUVORK5CYII="
 
 /***/ })
 /******/ ]);

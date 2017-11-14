@@ -36,8 +36,8 @@ class Filter extends Component {
           </li>
           <li className = "selectBox">
             <span className = "selectName">用户</span>
-            <Input width = "190"
-            height = "28"
+            <Input width = "190px"
+            height = "28px"
             borderColor = "#e0e0e0"
             paddingLeft = "10px"
             paddingRight = "0px"/>
@@ -49,7 +49,7 @@ class Filter extends Component {
               height = "28px"
               borderColor = "#00b03d"
               backgroundColor = "#2ec75d"
-              fontSize = "14"
+              fontSize = "14px"
               color = "#fff"
               name = "应用"
             />
@@ -58,7 +58,7 @@ class Filter extends Component {
               height = "28px"
               borderColor = "#e24b33"
               backgroundColor = "#f25b43"
-              fontSize = "14"
+              fontSize = "14px"
               color = "#fff"
               name = "删除"
             />
