@@ -27,6 +27,7 @@ class NavBox extends Component {
       {
         defaultStyle.navTitles.map((v, i) => {
           return <BreadCrumb
+            key = { i }
             url = { defaultStyle.url[i] }
             goHerf = { this.props.goHerf }
             name = { v }
