@@ -140,7 +140,7 @@ class AddUserContainer extends Component {
           url = {
             ['index',
               'add']}
-          borderColor = {[]}
+          borderColor = {['#eeeeee', '#f5f5f5']}
           btnShow = {false}
           btnName = {''}
           goHerf = {goHerf}/>
