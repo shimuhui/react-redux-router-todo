@@ -7043,15 +7043,15 @@ var pushMessCountAdd = exports.pushMessCountAdd = function pushMessCountAdd(id) 
         _mess.checkedId = parseInt(id);
         _mess.isShowInputButton = false;
       } else {
-        _mess.checkedId = id;
+        _mess.checkedId = parseInt(id);
       }
+      dispatch(pushMessageCountAction(_mess));
     } else {
       dispatch(getAlertAction({
         isShowAlert: true,
         alertText: '请输入正整数'
       }));
     }
-    dispatch(pushMessageCountAction(_mess));
   };
 };
 
