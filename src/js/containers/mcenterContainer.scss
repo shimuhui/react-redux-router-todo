@@ -1,19 +1,12 @@
 .mcenterContainer{
   width: 980px;
-  height: 690px;
+  height: auto;
   background: #94bddb;
   margin: 0 auto;
   paddingTop: 20px;
   box-sizing: border-box;
-  .leftNavBox{
-    width: 150px;
-    height: auto;
-    float: left;
-  }
   .rightBox{
     width: 820px;
     height: auto;
-    float: left;
-    position: absolute;
   }
 }

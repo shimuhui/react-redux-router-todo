@@ -5,10 +5,16 @@ import UserListTitle from '../userListTitle/userListTitle.jsx';
 import UserItem from '../userItem/userItem.jsx';
 import PropTypes from 'prop-types';
 import Config from '../../configs/config';
+import Alert from '../alert/alert.jsx';
 
 class UserList extends Component {
   constructor(props) {
     super(props);
+    this._delTipsBtnCancle = this._delTipsBtnCancle.bind(this);
+    this._delTipsBtnOk = this._delTipsBtnOk.bind(this);
+    this._delUser = this._delUser.bind(this);
+    this.alertBoxClick = this.alertBoxClick.bind(this);
+    this.alertBoxShow = this.alertBoxShow.bind(this);
     this.state = {
       userListStyle: {
         minHeight: 504,
@@ -42,13 +48,19 @@ class UserList extends Component {
         tipInfoText: '暂无用户符合该条件'
       },
       userListTitle: [
-        '姓名', '手机号码', '所属公司', '角色', '创建者', '创建时间', '最后登陆时间'
-      ]
+        '姓名', '手机号码', '所属公司', '角色', '创建者', '创建时间', '最后登录时间'
+      ],
+      delTipsToggleClass: {
+        flag: false,
+        active: 'delTipsToggleClass'
+      },
+      id: ''
     };
   }
   render() {
     let userTipsShow;
     let userListTitle;
+    let number = -1;
     if (this.props.userList.length == 0) {
       userTipsShow = <UserTips {...this.state.noUser}/>;
       userListTitle = '';
@@ -59,25 +71,68 @@ class UserList extends Component {
     return <div className = "userList"
       style = {this.state.userListStyle}
     >
+      <div className = "alertBox" ref = "alertBox">
+        <Alert
+          alertText = '测试人员不能删除'
+          closeClick = {this.alertBoxClick}
+        />
+      </div>
       { userTipsShow }
       { userListTitle }
       <ul>
       {
         this.props.userList
         ? Object.values(this.props.userList).map((v, i) => {
+
             if (v.status != 0) {
+              number++;
               return <UserItem
                 userInfo = {v}
                 key = { i }
+                num = { number }
                 editUserStatus = { this.props.editUserStatus }
-                delUser = { this.props.delUser }
+                delUser = { this._delUser }
                 goHerf = { this.props.goHerf }
+                alertBoxShow = { this.alertBoxShow }
                 />;
             }
           }) : ''
       }
+      <li className = "delTips" ref = "delTips">
+        <div className = "delTips_Title">确定删除此用户？</div>
+        <div>
+          <span className = "delTips_Btn delTips_Cancel"
+            onClick = { this._delTipsBtnCancle }
+          >取消</span>
+          <span className = "delTips_Btn delTips_Ok"
+            onClick = { this._delTipsBtnOk }
+          >确定</span>
+        </div>
+      </li>
       </ul>
     </div>;
+  }
+
+  _delTipsBtnCancle() {
+    this.refs.delTips.style.display = 'none';
+  }
+  _delUser(id, key) {
+    this.refs.delTips.style.top = 50 * key - 38 + 'px';
+    this.refs.delTips.style.display = 'block';
+    this.setState({
+      id: id
+    });
+  }
+  _delTipsBtnOk() {
+    let id = this.state.id;
+    this.props.delUser(id);
+    this.refs.delTips.style.display = 'none';
+  }
+  alertBoxClick() {
+    this.refs.alertBox.style.display = 'none';
+  }
+  alertBoxShow() {
+    this.refs.alertBox.style.display = 'block';
   }
 }
 
