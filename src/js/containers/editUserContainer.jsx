@@ -136,7 +136,7 @@ class EditUserContainer extends Component {
           url = {
             ['index',
               'edit/' + this.props.params.id]}
-          borderColor = {[]}
+          borderColor = {['#eeeeee', '#f5f5f5']}
           btnShow = {false}
           btnName = {''}
           goHerf = {goHerf}/>
