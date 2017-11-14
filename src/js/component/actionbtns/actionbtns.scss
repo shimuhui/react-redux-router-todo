@@ -4,6 +4,8 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  transition: all 0.3s;
+  color: #646464;
   .btn{
     width: 41px;
     height: 14px;
@@ -21,13 +23,21 @@
       height: 14px;
       font-size: 12px;
       line-height: 14px;
-      color: #14ae43;
-    }
-    .del{
-      color: #d63221;
     }
   }
   .toggleClass{
     display: none;
+  }
+  .edit,.lock,.delBox{
+    transition: all 0.3s;
+  }
+  .edit:hover{
+    color: #14ae43;
+  }
+  .lock:hover{
+    color: #14ae43;
+  }
+  .delBox:hover{
+    color: #d63221;
   }
 }

@@ -6,4 +6,65 @@
   position: relative;
   padding: 15px;
   box-sizing: border-box;
+  position: relative;
+  .alertBox{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -150px;
+    display: none;
+  }
+  .delTips{
+    position: absolute;
+    width: 216px;
+    height: 115px;
+    box-sizing: border-box;
+    padding: 10px 0 12px 0;
+    background-image: url('../../../../dist/images/delTips_image.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-radius: 2px;
+    top: -38px;
+    left: 658px;
+    display: none;
+    .delTips_Btn{
+      width: 60px;
+      height: 28px;
+      border-radius: 2px;
+      text-align: center;
+      line-height: 28px;
+      font-size: 12px;
+      display: inline-block;
+      &:hover{
+        cursor: pointer;
+      }
+    }
+    .delTips_Title{
+      color: #333;
+      font-size: 12px;
+      text-align: center;
+      width: 202px;
+      height: 41px;
+      line-height: 41px;
+      margin-left: 6px;
+      border-bottom: 1px solid #eee;
+      margin-bottom: 10px;
+    }
+    .delTips_Cancel{
+      border: 1px solid #dfdfdf;
+      color: #333;
+      box-shadow: rgba(142, 142, 142, 0.1) 1px 1px 1px;
+      margin: 0 10px 0 44px;
+      background: #fafafa;
+    }
+    .delTips_Ok{
+      border: 1px solid #2ec75d;
+      box-shadow: rgba(2, 104, 34, 0.2) 1px 1px 1px;
+      color: #fff;
+      background: #2ec75d;
+    }
+  }
+  .delTipsToggleClass{
+    display: block;
+  }
 }

@@ -14,7 +14,7 @@ class UserItem extends Component {
     let cTimeNew = cTime.toLocaleDateString();
     let lastLoginTime = new Date(this.props.userInfo.lastLoginTime);
     let lastLoginTimeNew = lastLoginTime.toLocaleDateString();
-    return <li className = 'userItem'>
+    return <li className = 'userItem' >
         <ul className = 'userInfo'
           id = { this.props.userInfo.userIdEncry }
           type = { this.props.userInfo.status }
@@ -33,7 +33,10 @@ class UserItem extends Component {
                     { this.props.userInfo.partnerName }
                 </li>
                 <li
-                    className = "infoText">
+                    className = "infoText"
+                    ref = "roleName"
+                    id = { this.props.userInfo.roleName }
+                    >
                     { this.props.userInfo.roleName }
                 </li>
                 <li
@@ -49,7 +52,10 @@ class UserItem extends Component {
                     { lastLoginTimeNew }
                 </li>
         </ul>
-        <div className = "userItemBtn">
+        <div className = 'userItemBtn'
+            id = { this.props.num }
+            ref = "btn"
+        >
           <Actionbtns status = { this.props.userInfo.status }
             editUserStatus = {this._editUserStatus }
             delUser = { this._delUser }
@@ -69,7 +75,11 @@ class UserItem extends Component {
   }
 
   _delUser() {
-    this.props.delUser(this.refs.item.id);
+    if (this.refs.roleName.id == '测试人员') {
+      this.props.alertBoxShow();
+    } else {
+      this.props.delUser(this.refs.item.id, this.refs.btn.id);
+    }
   }
 }
 
@@ -79,7 +89,9 @@ UserItem.propTypes = {
   delUser: PropTypes.func.isRequired,
   userIdEncry: PropTypes.string.isRequired,
   status: PropTypes.string.isRequired,
-  goHerf: PropTypes.func.isRequired
+  goHerf: PropTypes.func.isRequired,
+  num: PropTypes.string.isRequired,
+  alertBoxShow: PropTypes.func.isRequired
 };
 
 export default UserItem;
