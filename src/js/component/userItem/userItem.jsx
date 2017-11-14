@@ -84,13 +84,11 @@ class UserItem extends Component {
 }
 
 UserItem.propTypes = {
-  userInfo: PropTypes.array.isRequired,
+  userInfo: PropTypes.object.isRequired,
   editUserStatus: PropTypes.func.isRequired,
   delUser: PropTypes.func.isRequired,
-  userIdEncry: PropTypes.string.isRequired,
-  status: PropTypes.string.isRequired,
   goHerf: PropTypes.func.isRequired,
-  num: PropTypes.string.isRequired,
+  num: PropTypes.number.isRequired,
   alertBoxShow: PropTypes.func.isRequired
 };
 
